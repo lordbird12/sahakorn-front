@@ -1,0 +1,163 @@
+<div class="app-content page-body">
+  <form [formGroup]="employeeForm.baseForm" (ngSubmit)="onAdd()">
+    <div class="container">
+      <!--Page header-->
+      <div class="page-header">
+        <div class="page-leftheader">
+          <h4 class="page-title">เพิ่มพนักงานใหม่</h4>
+        </div>
+        <div class="page-rightheader ml-auto d-lg-flex d-none">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+              <a href="#" class="d-flex"><svg class="svg-icon" xmlns="http://www.w3.org/2000/svg" height="24"
+                  viewBox="0 0 24 24" width="24">
+                  <path d="M0 0h24v24H0V0z" fill="none" />
+                  <path d="M12 3L2 12h3v8h6v-6h2v6h6v-8h3L12 3zm5 15h-2v-6H9v6H7v-7.81l5-4.5 5 4.5V18z" />
+                  <path d="M7 10.19V18h2v-6h6v6h2v-7.81l-5-4.5z" opacity=".3" />
+                </svg><span class="breadcrumb-icon">หน้าหลัก </span></a>
+            </li>
+            <li class="breadcrumb-item"><a href="base/employee/list">รายการ</a></li>
+            <li class="breadcrumb-item active" aria-current="page">
+              เพิ่มพนักงานใหม่
+            </li>
+          </ol>
+        </div>
+      </div>
+      <!--End Page header-->
+
+      <!-- Row -->
+      <div class="row">
+
+        <div class="col-xl-12 col-lg-12">
+          <div class="card">
+            <div class="card-header">
+              <div class="card-title">ข้อมูลส่วนตัว</div>
+            </div>
+            <div class="card-body">
+              <div class="row">
+                <div class="col-xl-4 col-lg-4 col-sm-12">
+                  <div class="text-center mb-5">
+                    <h2>โปรไฟล์</h2>
+                    <img style="width: 120px; height:100px; border-radius: 100px;" src="assets/images/noimage.png">
+                    <div class="text-center mb-5">
+                      <h2>ลายเซ็นต์</h2>
+                    <img style="width: 120px; height:100px; border-radius: 100px;" src="assets/images/nosig.png">
+                  </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputPassword1">Password</label>
+                    <input type="password" class="form-control" formControlName="password">
+                    <div *ngIf="employeeForm.password.touched && employeeForm.password.invalid">
+                        <small *ngIf="employeeForm.password.errors.required" class="text-danger">Password is required<br></small>
+                        <small *ngIf="employeeForm.password.errors.minlength" class="text-danger">password must contain 6 characters at least</small>
+                    </div>
+                </div>
+                <div class="form-group">
+                  <label for="repeatPassword">Repeat Password</label>
+                  <input type="password" class="form-control" formControlName="confirm_password">
+                  <div *ngIf="employeeForm.confirm_password.touched && employeeForm.confirm_password.invalid">
+                      <small *ngIf="employeeForm.confirm_password.errors.required" class="text-danger">Repeat Password is required<br></small>
+                  </div>
+                  <div *ngIf="employeeForm.confirm_password.valid && employeeForm.confirm_password.value != employeeForm.password.value" class="text-danger">
+                      The passwords entered do not match
+                  </div>
+                </div>
+                  <!-- <div class="form-group">
+                  <label class="form-label">Password</label>
+                  <input type="password" class="form-control" formControlName="password" placeholder="Password" />
+                </div>
+                  <div class="form-group">
+                    <label class="form-label">Comfirm Password</label>
+                    <input type="password" class="form-control" formControlName="confirm_password" placeholder="Comfirm Password" />
+                  </div> -->
+                  <!-- <div class="form-group">
+                  <label class="form-label">Confirm Password</label>
+                  <input type="password" class="form-control"  formControlName="password" placeholder="Confirm Password">
+                </div> -->
+                </div>
+                <div class="col-xl-4 col-lg-4 col-sm-12">
+                  <div class="form-group">
+                    <label class="form-label">รหัสพนักงาน</label>
+                    <input type="text" formControlName="user_id" class="form-control" placeholder="User ID" />
+                  </div>
+                  <div class="form-group">
+                    <label class="form-label">ชื่อพนักงาน</label>
+                    <input type="text" formControlName="name" class="form-control" placeholder="Employee Name" />
+                  </div>
+                  <div class="form-group">
+                    <label class="form-label">อีเมล</label>
+                    <input type="email" formControlName="email" class="form-control" placeholder="Email" />
+                    <div *ngIf="employeeForm.email.touched && employeeForm.email.invalid">
+                      <small *ngIf="employeeForm.email.errors.required" class="text-danger">Email is required<br></small>
+                      <!-- <small *ngIf="employeeForm.email.errors.pattern" class="text-danger">Email is Invalid<br></small> -->
+                  </div>
+                  </div>
+                  <div class="custom-file mb-3">
+                    <input type="file" (change)='onChange($event)' class="custom-file-input"/>
+                    <label class="custom-file-label" for="customFile">Choose Your Picture Profile</label>
+                  </div>
+                  <div class="custom-file mb-3">
+                    <input type="file" (change)='onChangeSignature($event)' class="custom-file-input" />
+                    <label class="custom-file-label" for="customFile">Choose Your Signature</label>
+                  </div>
+                  <div class="custom-file mb-3">
+                    <label class="form-label">Line Token</label>
+                    <input type="text" formControlName="line_token" class="form-control"/>
+                  </div>
+                </div>
+                <div class="col-xl-4 col-lg-4 col-sm-12">
+                  <div class="form-group">
+                    <label class="form-label">สาขา</label>
+                    <select class="custom-select" formControlName="branch_id">
+                      <option value="" disabled selected>--Select--</option>
+                      <option  *ngFor="let item of BranchData; let i =index" value="{{ item.id }}">{{ item.name_th }}</option>
+                    </select>
+                  </div>
+                  <div class="form-group">
+                    <label class="form-label">สิทธิ์</label>
+                    <select class="custom-select" formControlName="permission_id">
+                      <option value="" disabled selected>--Select--</option>
+                      <option  *ngFor="let item of PermissionData; let i =index" value="{{ item.id }}">{{ item.name_th }}</option>
+                    </select>
+                  </div>
+                  <div class="form-group">
+                    <label class="form-label">แผนก</label>
+                    <select class="custom-select" formControlName="department_id">
+                      <option value="" disabled selected>--Select--</option>
+                      <option  *ngFor="let item of DepartmentData; let i =index" value="{{ item.id }}">{{ item.name_th }}</option>
+                    </select>
+                  </div>
+                  <div class="form-group">
+                    <label class="form-label">ตำแหน่ง</label>
+                    <select class="custom-select" formControlName="position_id">
+                      <option value="" disabled selected>--Select--</option>
+                      <option  *ngFor="let item of PositionData; let i =index" value="{{ item.id }}">{{ item.name_th }}</option>
+                    </select>
+                  </div>
+                  <div class="custom-file mb-3">
+                    <label class="form-label">สถานะ</label>
+                    <select class="custom-select" formControlName="status" >
+                      <option value="" disabled selected>--Select--</option>
+                      <option value="Yes">Enable</option>
+                      <option value="No">Disable</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="card-footer text-right">
+              <button type="button" (click)=onAdd(); class="btn btn-primary" [disabled]="employeeForm.baseForm.invalid || employeeForm.confirm_password.value != employeeForm.password.value">
+                บันทึก
+              </button>
+              &nbsp;
+              <a href="#" class="btn btn-danger">ล้างข้อมูล</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- End Row-->
+    </div>
+  </form>
+</div>
+<!-- end app-content-->
