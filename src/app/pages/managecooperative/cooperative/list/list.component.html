@@ -1,0 +1,223 @@
+<div class="app-content main-content">
+    <div class="side-app">
+      <!--Page header-->
+      <div class="page-header">
+        <div class="page-leftheader">
+          <h4 class="page-title">รายการสหกรณ์</h4>
+        </div>
+        <div class="page-rightheader ml-auto d-lg-flex d-none">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+              <a href="#" class="d-flex"
+                ><svg
+                  class="svg-icon"
+                  xmlns="http://www.w3.org/2000/svg"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  width="24"
+                >
+                  <path d="M0 0h24v24H0V0z" fill="none" />
+                  <path
+                    d="M12 3L2 12h3v8h6v-6h2v6h6v-8h3L12 3zm5 15h-2v-6H9v6H7v-7.81l5-4.5 5 4.5V18z"
+                  />
+                  <path
+                    d="M7 10.19V18h2v-6h6v6h2v-7.81l-5-4.5z"
+                    opacity=".3"
+                  /></svg
+                ><span class="breadcrumb-icon"> หน้าหลัก</span></a
+              >
+            </li>
+            <li class="breadcrumb-item active" aria-current="page">บริษัท</li>
+          </ol>
+        </div>
+      </div>
+      <!--End Page header-->
+  
+      <!-- Row -->
+      <div class="row">
+        <div class="col-12">
+          <!--div-->
+          <div class="card">
+            <div class="card-body">
+              <div class="row">
+                <div class="col mb-4">
+                  <div class="card-title">ข้อมูลสหกรณ์</div>
+                </div>
+                <div class="col col-auto mb-4">
+                  <div class="form-group w-100">
+                    <a routerLink="/base/company/form" class="btn btn-primary"
+                      ><i class="fe fe-plus"></i> บันทึกข้อมูล</a
+                    >
+                  </div>
+                </div>
+              </div>
+              <div class="">
+                <div class="row">
+                  <div class="col-md-1"></div>
+                  <div class="col-md-5" style="border-style: groove; border: 2px solid rgb(66, 60, 71);border-radius: 10px;padding: 8px;">
+                         <form>
+                             <div class="card-title">ข้อมูลทั่วไป</div>
+
+
+                            <div class="form-group row">
+                              <label class="col-md-3 form-label" align ="right">รหัสสหกรณ์</label>
+                              <div class="col-md-9">
+                                <input style="width: 200px;" 
+                                type="text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm"/>
+                              </div>
+                            </div>
+
+                            <div class="form-group row">
+                              <label class="col-md-3 form-label" align = "right">ชื่อสหกรณ์</label>
+                              <div class="col-md-9">
+                                <input style="width: 350px;" type="text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm" />
+                              </div>
+                            </div>
+                            <div class="form-group row">
+                              <label class="col-md-3 form-label" align = "right">วันที่ก่อตั้ง</label>
+                              <div class="col-md-9">
+                                <input style="width: 200px;" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm"/>
+                              </div>
+                            </div>
+                            <div class="form-group row">
+                              <label class="col-md-3 form-label" align = "right">ประเภทสหกรณ์</label>
+                              <div class="col-md-9">
+
+                                <select style="width: 200px;" class="form-control">
+                                  <optgroup label="เลือกประเภทสหกรณ์">
+                                  <option value="">001</option>
+                                  <option value="">002</option>
+                                </select>
+                              </div>
+                            </div>
+                            <div class="form-group row">
+                              <label class="col-md-3 form-label" align = "right">เลขประจาตัวผู้เสียภาษีอากร</label>
+                              <div class="col-md-9">
+                                <input style="width: 200px;" type="text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm"/>
+                              </div>
+                            </div>
+                             
+                            <div class="form-group row">
+                              <label class="col-md-3 form-label" align = "right">Batch</label>
+                              <div class="col-md-9">
+                                <input style="width: 200px;" type="text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm"/>
+                              </div>
+                            </div>
+                            <div class="form-group row">
+                              <label class="col-md-3 form-label" align = "right">ชื่อธนาคาร</label>
+                              <div class="col-md-9">
+                                <input style="width: 200px;" 
+                                type="text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm"/>
+                              </div>
+                            </div>
+                            <div class="form-group row">
+                              <label class="col-md-3 form-label" align = "right">ชื่อบัญชีธนาคาร</label>
+                              <div class="col-md-9">
+                                <input style="width: 200px;"
+                                type="text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm"/>
+                              </div>
+                            </div>
+                            <div class="form-group row">
+                              <label class="col-md-3 form-label" align = "right">ชื่อเลขบัญชีธนาคาร</label>
+                              <div class="col-md-9">
+                                <input style="width: 200px;" 
+                                type="text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm"/>
+                              </div>
+                            </div>
+                            <div class="form-group row">
+                              <label class="col-md-3 form-label" align = "right">ไฟล์โลโก้</label>
+                              <div class="col-md-9">
+                                <input style="width: 200px;" 
+                                 type="file" aria-label="Small" aria-describedby="inputGroup-sizing-sm"/>
+                              </div>
+                            </div>
+                         </form >
+                       </div>
+                       <div class="col-md-5" style="border-style: groove; border: 2px solid rgb(66, 60, 71);border-radius: 10px;padding: 8px;">
+                         <form>
+                             <div class="card-title">ข้อมูลที่อยู่</div>
+                             
+                             <div class="form-group row">
+                              <label class="col-md-3 form-label" align = "right">เลขที่</label>
+                              <div class="col-md-9">
+                                <input style="width: 200px;" type="text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm"/>
+                              </div>
+                            </div>
+
+                             <div class="form-group row">
+                              <label class="col-md-3 form-label" align = "right">หมู่บ้าน</label>
+                              <div class="col-md-9">
+                                <input style="width: 200px;"  type="text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm"/>
+                              </div>
+                            </div>
+
+                            <div class="form-group row">
+                              <label class="col-md-3 form-label" align = "right">ถนน</label>
+                              <div class="col-md-9">
+                                <input style="width: 200px;" 
+                                type="text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm"/>
+                              </div>
+                            </div>
+                             
+                             <div class="form-group row">
+                              <label class="col-md-3 form-label" align = "right">ตำบล/แขวง</label>
+                              <div class="col-md-9">
+                                <input style="width: 200px;" type="text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm"/>
+                              </div>
+                            </div>
+                           
+                             <div class="form-group row">
+                              <label class="col-md-3 form-label" align = "right">อำเภอ/เขต</label>
+                              <div class="col-md-9">
+                                <input style="width: 200px;" type="text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm"/>
+                              </div>
+                            </div>
+                             
+                            <div class="form-group row">
+                              <label class="col-md-3 form-label" align = "right">จังหวัด</label>
+                              <div class="col-md-9">
+                                <input style="width: 200px;" type="text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm"/>
+                              </div>
+                            </div>
+                             
+                             <div class="form-group row">
+                              <label class="col-md-3 form-label" align = "right">รหัสไปรษย์ณี</label>
+                              <div class="col-md-9">
+                                <input style="width: 200px;" type="text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm"/>
+                              </div>
+                            </div>
+                           
+                             <div class="form-group row">
+                              <label class="col-md-3 form-label" align = "right">เบอร์โทรศัพท์</label>
+                              <div class="col-md-9">
+                                <input style="width: 200px;" type="text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm"/>
+                              </div>
+                            </div>
+                             
+                             <div class="form-group row">
+                              <label class="col-md-3 form-label" align = "right">เบอร์แฟรกซ์</label>
+                              <div class="col-md-9">
+                                <input style="width: 200px;" type="text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm"/>
+                              </div>
+                            </div>
+                          
+                             <div class="form-group row">
+                              <label class="col-md-3 form-label" align = "right">ไฟล์แผนที่</label>
+                              <div class="col-md-9">
+                                <input style="width: 200px;" type="file" aria-label="Small" aria-describedby="inputGroup-sizing-sm"/>
+                              </div>
+                            </div>   
+                         </form>
+                       </div>
+                   </div>
+              </div>
+            </div>
+          </div>
+          <!--/div-->
+        </div>
+      </div>
+      <!-- /Row -->
+    </div>
+  </div>
+  <!-- end app-content-->
+  

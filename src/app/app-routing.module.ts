@@ -15,6 +15,7 @@ const routes: Routes = [
   { path: 'reports', loadChildren: () => import('./pages/reports/reports.module').then(m => m.ReportsModule) },
   { path: 'settings', loadChildren: () => import('./pages/settings/settings.module').then(m => m.SettingsModule) },
   { path: 'forgot', loadChildren: () => import('./pages/auth/forgot/forgot.module').then(m => m.ForgotModule) },
+  { path: 'managecooperative', loadChildren: () => import('./pages/managecooperative/managecooperative.module').then(m => m.ManagecooperativeModule) },
   {
     path: '**', loadChildren: () =>
       import('./pages/not-found/not-found.module').then(

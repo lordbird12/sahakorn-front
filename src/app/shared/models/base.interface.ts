@@ -678,3 +678,71 @@ export interface ForgotPassword {
   updated_at: string;
 
 }
+
+//cooperative
+export interface Cooperative {
+  cooperative_id: number;
+  cooperative_no: string;
+  name: string;
+  start_date: string;
+  type: string;
+  tax_id: string;
+  bank_batch: string;
+  bank_name: string;
+  account_name: string;
+  bank_id: number;
+  logo: string;
+  address: string;
+  village: [];
+  road: string;
+  sub_district: string;
+  district: string;
+  province_id: number;
+  zipcode: number;
+  phone: number;
+  fax: [];
+  map: string;
+}
+
+export interface CooperativeResponse extends Cooperative {
+  code: string;
+  status: string;
+  message: string;
+  data: {
+    data: any[],
+    draw: number;
+    to: number;
+    total: number;
+  };
+}
+//loantype
+export interface Loantype {
+  id: number;
+  name: string;
+  description: string;
+  abbreviation: string;
+  interest_rate: string;
+  share: string;
+  member_age: number;
+  supporter_age: number;
+  account_name: string;
+  supporter: number;
+
+}
+
+export interface LoantypeResponse extends Loantype {
+  code: string;
+  status: string;
+  message: string;
+  data: {
+    data: any[],
+    draw: number;
+    to: number;
+    total: number;
+  };
+}
+
+
+
+
+

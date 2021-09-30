@@ -1,5 +1,6 @@
 import { map, takeUntil } from 'rxjs/operators';
-import { CompanyService } from './../services/company.service';
+import { LoantypeService } from './../services/loantype.service';
+import {Location} from '@angular/common';
 import {
   AfterViewInit,
   Component,
@@ -8,8 +9,10 @@ import {
   OnDestroy,
 } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { BaseFormCompany } from '@shared/utils/base-form-company';
+import { BaseFormLoantype } from '@shared/utils/base-form-loantype';
 import { Observable, Subscription } from 'rxjs';
+import { LoantypeResponse } from '@app/shared/models/base.interface';
+
 enum Action {
   EDIT = 'edit',
   NEW = 'new',
@@ -26,16 +29,19 @@ export class EditComponent implements AfterViewInit, OnInit, OnDestroy {
   showPasswordField = true;
   hide = true;
   private subscription: Subscription = new Subscription();
-
+  state: Observable<LoantypeResponse>;
+  public Cooperativedata: any = [];
 
   constructor(
-    private companySvc: CompanyService,
+    private loantypeSvc: LoantypeService,
     private router: Router,
-    public companyForm: BaseFormCompany,
-    public activatedRoute: ActivatedRoute
+    public loantypeForm: BaseFormLoantype,
+    public activatedRoute: ActivatedRoute,
+    private _location: Location
+
   ) {
     console.log('extras', this.router.getCurrentNavigation().extras.state.item);
-    this.companyForm.baseForm.setValue(this.router.getCurrentNavigation().extras.state.item);
+    this.loantypeForm.baseForm.setValue(this.router.getCurrentNavigation().extras.state.item);
   }
 
   ngOnDestroy(): void {
@@ -47,24 +53,27 @@ export class EditComponent implements AfterViewInit, OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
-    this.companyForm.baseForm.get('role').setValidators(null);
-    this.companyForm.baseForm.get('role').updateValueAndValidity();
+    this.loantypeForm.baseForm.get('role').setValidators(null);
+    this.loantypeForm.baseForm.get('role').updateValueAndValidity();
   }
 
   onUpdate(): void {
 
-    if (this.companyForm.baseForm.invalid) {
+    if (this.loantypeForm.baseForm.invalid) {
       return;
     }
-    const formValue = this.companyForm.baseForm.value;
-    // console.log(formValue);
+    const formValue = this.loantypeForm.baseForm.value;
+    console.log(formValue);
     // return false
     if (this.actionTODO === Action.EDIT) {
-      this.companySvc.update(formValue.id, formValue).subscribe((res) => {
-        this.router.navigate(['base/company/list']);
+      this.loantypeSvc.update(formValue.id, formValue).subscribe((res) => {
+        alert("บันทึกสำเร็จ");
+        this.router.navigate(['managecooperative/loantype/list']);
       });
     }
   }
+
+
 
 
 
