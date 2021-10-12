@@ -20,6 +20,9 @@ export class PositionLevelService {
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json', Authorization: `Bearer ${user.token}` })
   };
+  httpOptionsFormdata = {
+    headers: new HttpHeaders({ Authorization: `Bearer ${user.token}` })
+  };
 
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
     return next.handle(this.addToken(request));
@@ -34,10 +37,10 @@ export class PositionLevelService {
 
   getAll(dataTablesParameters: any): Observable<PositionLevelResponse> {
     return this.http
-      .post<PositionLevelResponse>(`${environment.API_URL}/api/position_page`, dataTablesParameters, this.httpOptions)
+      .post<PositionLevelResponse>(`${environment.API_URL}/api/position_level_page`, dataTablesParameters, this.httpOptions)
       .pipe(
-        map((position: PositionLevelResponse) => {
-          return position;
+        map((positiongroup: PositionLevelResponse) => {
+          return positiongroup;
         }));
   }
 
@@ -49,19 +52,19 @@ export class PositionLevelService {
 
   new(position: PositionLevel): Observable<PositionLevel> {
     return this.http
-      .post<PositionLevel>(`${environment.API_URL}/api/position`, position, this.httpOptions)
+      .post<PositionLevel>(`${environment.API_URL}/api/position_level`, position, this.httpOptions)
       .pipe(catchError(this.handlerError));
   }
 
   update(positionId: number, position: PositionLevel): Observable<PositionLevel> {
     return this.http
-      .patch<PositionLevel>(`${environment.API_URL}/api/position/${positionId}`, position, this.httpOptions)
+      .patch<PositionLevel>(`${environment.API_URL}/api/position_level/${positionId}`, position, this.httpOptions)
       .pipe(catchError(this.handlerError));
   }
 
   delete(positionId: number): Observable<{}> {
     return this.http
-      .delete<PositionLevel>(`${environment.API_URL}/api/position/${positionId}`, this.httpOptions)
+      .delete<PositionLevel>(`${environment.API_URL}/api/position_level/${positionId}`, this.httpOptions)
       .pipe(
         map((position: PositionLevelResponse) => {
           return position;

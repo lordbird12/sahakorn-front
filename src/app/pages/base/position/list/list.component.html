@@ -3,32 +3,20 @@
     <!--Page header-->
     <div class="page-header">
       <div class="page-leftheader">
-        <h4 class="page-title">ตำแหน่ง</h4>
+        <h4 class="page-title">รายการตำแหน่งงาน</h4>
       </div>
       <div class="page-rightheader ml-auto d-lg-flex d-none">
         <ol class="breadcrumb">
           <li class="breadcrumb-item">
-            <a href="#" class="d-flex"
-              ><svg
-                class="svg-icon"
-                xmlns="http://www.w3.org/2000/svg"
-                height="24"
-                viewBox="0 0 24 24"
-                width="24"
-              >
+            <a href="#" class="d-flex"><svg class="svg-icon" xmlns="http://www.w3.org/2000/svg" height="24"
+                viewBox="0 0 24 24" width="24">
                 <path d="M0 0h24v24H0V0z" fill="none" />
-                <path
-                  d="M12 3L2 12h3v8h6v-6h2v6h6v-8h3L12 3zm5 15h-2v-6H9v6H7v-7.81l5-4.5 5 4.5V18z"
-                />
-                <path
-                  d="M7 10.19V18h2v-6h6v6h2v-7.81l-5-4.5z"
-                  opacity=".3"
-                /></svg
-              ><span class="breadcrumb-icon"> หน้าหลัก </span></a
-            >
+                <path d="M12 3L2 12h3v8h6v-6h2v6h6v-8h3L12 3zm5 15h-2v-6H9v6H7v-7.81l5-4.5 5 4.5V18z" />
+                <path d="M7 10.19V18h2v-6h6v6h2v-7.81l-5-4.5z" opacity=".3" />
+              </svg><span class="breadcrumb-icon"> หน้าหลัก </span></a>
           </li>
           <li class="breadcrumb-item active" aria-current="page">
-           รายการตำแหน่ง
+            รายการตำแหน่ง
           </li>
         </ol>
       </div>
@@ -47,29 +35,24 @@
               </div>
               <div class="col col-auto mb-4">
                 <div class="form-group w-100">
-                  <a routerLink="/base/position/form" class="btn btn-primary"
-                    ><i class="fe fe-plus"></i> เพิ่มตำแหน่งใหม่</a
-                  >
+                  <a routerLink="/base/position/form" class="btn btn-primary"><i class="fe fe-plus"></i>
+                    เพิ่มตำแหน่งงาน</a>
                 </div>
               </div>
             </div>
             <div class="">
               <div class="table-responsive">
-                <table
-                  datatable
-                  [dtOptions]="dtOptions"
-                  id="example"
-                  class="
+                <table datatable [dtOptions]="dtOptions" id="example" class="
                     table table-striped
                     card-table
                     table-vcenter
                     text-nowrap
                     mb-0
-                  "
-                >
+                  ">
                   <thead>
                     <tr>
                       <th class="border-bottom-0">ลำดับ.</th>
+                      <th class="border-bottom-0">รหัส</th>
                       <th class="border-bottom-0">ชื่อตำแหน่ง TH</th>
                       <th class="border-bottom-0">ชื่อตำแหน่ง EN</th>
                       <th class="border-bottom-0">ผู้บันทึก</th>
@@ -82,6 +65,7 @@
                   <tbody>
                     <tr *ngFor="let item of dataRow; let i = index">
                       <td>{{ i + 1 }}</td>
+                      <td>{{ item.code }}</td>
                       <td>{{ item.name_th }}</td>
                       <td>{{ item.name_en }}</td>
                       <td>{{ item.create_by }}</td>
@@ -90,18 +74,10 @@
                       <td>{{ item.updated_at | date: "d/M/yy, h:mm:ss a" }}</td>
                       <td>
                         <div class="btn-list">
-                          <button
-                            type="button"
-                            (click)="onEdit(item)"
-                            class="btn btn-icon btn-success"
-                          >
+                          <button type="button" (click)="onEdit(item)" class="btn btn-icon btn-success">
                             <i class="fa fa-edit"></i>
                           </button>
-                          <button
-                            type="button"
-                            (click)="onDelete(item.id)"
-                            class="btn btn-icon btn-danger"
-                          >
+                          <button type="button" (click)="onDelete(item.id)" class="btn btn-icon btn-danger">
                             <i class="fa fa-trash"></i>
                           </button>
                         </div>

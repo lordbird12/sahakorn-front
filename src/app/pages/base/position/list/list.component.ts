@@ -82,6 +82,7 @@ export class ListComponent implements AfterViewInit, OnInit, OnDestroy {
       },
       columns: [
         { data: 'No' },
+        { data: 'code' },
         { data: 'name_th' },
         { data: 'name_en' },
         { data: 'create_by' },
@@ -101,12 +102,11 @@ export class ListComponent implements AfterViewInit, OnInit, OnDestroy {
       state: {
         item: {
           id: data.id,
-          name: data.name,
-          // company_id: data.company_id,
-          // name_th: data.name_th,
-          // name_en: data.name_en,
+          code: data.code,
+          name_th: data.name_th,
+          name_en: data.name_en,
           role: '',
-        }
+        },
       }
     };
 
@@ -119,9 +119,9 @@ export class ListComponent implements AfterViewInit, OnInit, OnDestroy {
         .delete(positionId)
         .pipe(takeUntil(this.destroy$))
         .subscribe((res: PositionResponse) => {
-          if (res.code === 201) {
+          // if (res.code === 201) {
             this.rerender();
-          }
+          // }
           // this.branchSvc.getAll().subscribe((branch) => {
           // this.dataRow = branch.data;
           // });

@@ -26,6 +26,7 @@ export class EditComponent implements AfterViewInit, OnInit, OnDestroy {
   showPasswordField = true;
   hide = true;
   private subscription: Subscription = new Subscription();
+  public ProvinceData: any = [];
 
   constructor(
     private branchSvc: BranchService,
@@ -48,7 +49,16 @@ export class EditComponent implements AfterViewInit, OnInit, OnDestroy {
   ngOnInit(): void {
     this.branchForm.baseForm.get('role').setValidators(null);
     this.branchForm.baseForm.get('role').updateValueAndValidity();
+    this.getProvince();
   }
+
+  getProvince(): void {
+    this.branchSvc.getProvince().subscribe(resp => {
+      this.ProvinceData = resp.data;
+      console.log(this.ProvinceData);
+    });
+
+   }
 
   onUpdate(): void {
 
@@ -60,6 +70,7 @@ export class EditComponent implements AfterViewInit, OnInit, OnDestroy {
     // return false
     if (this.actionTODO === Action.EDIT) {
       this.branchSvc.update(formValue.id, formValue).subscribe((res) => {
+        alert("บันทึกข้อมูลสำเร็จ");
         this.router.navigate(['base/branch/list']);
       });
     }

@@ -6,8 +6,10 @@ import { ListComponent } from './list/list.component';
 import { FormComponent } from './form/form.component';
 import { ViewComponent } from './view/view.component';
 import { EditComponent } from './edit/edit.component';
+
 import { DataTablesModule } from 'angular-datatables';
-import { ReactiveFormsModule } from '@angular/forms';
+
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { ActivateComponent } from './activate/activate.component';
 
 
@@ -17,6 +19,7 @@ import { ActivateComponent } from './activate/activate.component';
     CommonModule,
     EmployeeRoutingModule,
     DataTablesModule,
+    FormsModule,
     ReactiveFormsModule
   ]
 })

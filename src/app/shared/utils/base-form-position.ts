@@ -12,16 +12,20 @@ export class BaseFormPosition {
     id: [
       '',
     ],
-    name: [
+    code: [
       '',
+      [Validators.required],
     ],
-    // name_th: [
-    //   '',
-    // ],
-    // name_en: [
-    //   '',
-    // ],
-    role: ['',],
+    name_th: [
+      '',
+      [Validators.required],
+    ],
+    name_en: [
+      '',
+      [Validators.required],
+    ],
+
+    role: ['', [Validators.required]],
   });
 
   isValidField(field: string): boolean {

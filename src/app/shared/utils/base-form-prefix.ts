@@ -12,6 +12,10 @@ export class BaseFormPrefix {
     id: [
       '',
     ],
+    code: [
+      '',
+      [Validators.required],
+    ],
     name_th: [
       '',
       [Validators.required],

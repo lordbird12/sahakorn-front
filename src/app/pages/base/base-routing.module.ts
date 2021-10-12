@@ -26,10 +26,13 @@ const routes: Routes = [
   { path: 'gender', loadChildren: () => import('./gender/gender.module').then(m => m.GenderModule) },
   { path: 'education', loadChildren: () => import('./education/education.module').then(m => m.EducationModule) },
   { path: 'position-level', loadChildren: () => import('./position-level/position-level.module').then(m => m.PositionLevelModule) },
+  { path: 'position-group', loadChildren: () => import('./position-group/position-group.module').then(m => m.PositionGroupModule) },
   { path: 'hospital', loadChildren: () => import('./hospital/hospital.module').then(m => m.HospitalModule) },
   { path: 'religion', loadChildren: () => import('./religion/religion.module').then(m => m.ReligionModule) },
   { path: 'taxbreak', loadChildren: () => import('./taxbreak/taxbreak.module').then(m => m.TaxbreakModule) },
   { path: 'permission', loadChildren: () => import('./permission/permission.module').then(m => m.PermissionModule) },
+  { path: 'prefix', loadChildren: () => import('./prefix/prefix.module').then(m => m.PrefixModule) },
+
 ];
 
 @NgModule({

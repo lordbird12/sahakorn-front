@@ -38,7 +38,6 @@ export class CompanyService {
     return requestWithHeader;
   }
 
-
   getAll(dataTablesParameters: any): Observable<CompanyResponse> {
     return this.http
       .post<CompanyResponse>(`${environment.API_URL}/api/company_page`, dataTablesParameters, this.httpOptions)

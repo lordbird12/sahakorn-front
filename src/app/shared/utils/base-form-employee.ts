@@ -12,73 +12,123 @@ export class BaseFormEmployee {
     id: [
       '',
     ],
-    user_id: [
+    prefix_id: [
       '',
+      [Validators.required],
+    ],
+    company_id: [
+      '',
+      [Validators.required],
+    ],
+    branch_id: [
+      '',
+      [Validators.required],
+
+    ],
+    division_id: [
+      '',
+      Validators.required
+    ],
+    department_id: [
+
+      '',
+      [Validators.required],
+    ],
+    position_id: [
+
+      '',
+      [Validators.required],
+    ],
+    person_type_id: [
+
+      '',
+      [Validators.required],
+    ],
+    position_group_id: [
+
+      '',
+      // [Validators.required],
+    ],
+    position_type_id: [
+      '',
+      // [Validators.required],
+
+    ],
+    position_level_id: [
+      '',
+      // [Validators.required],
+
+    ],
+    person_id: [
+      '',
+      [Validators.required],
+
+    ],
+    card_id: [
+      '',
+      [Validators.required],
 
     ],
     name: [
       '',
+      [Validators.required],
 
     ],
+    name_en: [
+      '',
+      [Validators.required],
+
+    ],
+
+    sex: [
+      '',
+      [Validators.required],
+
+    ],
+
+    position_number: [
+      '',
+      // [Validators.required],
+
+    ],
+
+    id_card: [
+      '',
+      [Validators.required],
+
+    ],
+
     email: [
       '',
-      Validators.required
-    ],
-    image: [
+      [Validators.required],
 
+    ],
+
+    photo: [
       '',
+      [Validators.required],
 
     ],
-    image_url: [
 
+    phone: [
       '',
+      // [Validators.required],
 
     ],
-    signature: [
 
+    birthday: [
       '',
+      [Validators.required],
 
     ],
-    signature_url: [
 
+    start_work_date: [
       '',
-
-    ],
-    password: [
-      '',
-      [Validators.required , Validators.minLength(6) ]
-    ],
-    confirm_password: [
-      '',
-      [Validators.required , Validators.minLength(6) ]
-    ],
-    branch_id: [
-      '',
-
-    ],
-    permission_id: [
-      '',
-
-    ],
-    department_id: [
-      '',
+      [Validators.required],
 
     ],
 
-    position_id: [
-      '',
-
-    ],
-    status: [
-      '',
-
-    ],
-    line_token: [
-      '',
-
-    ],
-
-    // role: ['', [Validators.required]],
+    role: ['', [Validators.required]],
 
   }
 

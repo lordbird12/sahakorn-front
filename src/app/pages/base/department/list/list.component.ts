@@ -15,7 +15,7 @@ import { MatSort } from '@angular/material/sort';
 import { MatDialog } from '@angular/material/dialog';
 import { Subject } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { environment } from '@env/environment';
+// import { environment } from '@env/environment';
 import { DataTableDirective } from 'angular-datatables';
 import { DepartmentResponse } from '@app/shared/models/base.interface';
 
@@ -87,13 +87,14 @@ export class ListComponent implements AfterViewInit, OnInit, OnDestroy {
       },
       columns: [
         { data: 'No' },
+        { data: 'code' },
         { data: 'name_th' },
         { data: 'name_en' },
         { data: 'create_by' },
         { data: 'update_by' },
         { data: 'created_at' },
         { data: 'updated_at' },
-        { data: 'action' },
+        { data: 'action', orderable: false },
       ]
     };
 
@@ -106,7 +107,9 @@ export class ListComponent implements AfterViewInit, OnInit, OnDestroy {
       state: {
         item: {
           id: data.id,
-          name: data.name,
+          code: data.code,
+          name_th: data.name_th,
+          name_en: data.name_en,
           role: '',
         }
       }

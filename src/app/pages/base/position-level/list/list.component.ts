@@ -86,7 +86,8 @@ export class ListComponent implements AfterViewInit, OnInit, OnDestroy {
         });
       },
       columns: [
-        { data: 'No' },
+        { data: 'id' },
+        { data: 'code' },
         { data: 'name_th' },
         { data: 'name_en' },
         { data: 'create_by' },
@@ -106,27 +107,26 @@ export class ListComponent implements AfterViewInit, OnInit, OnDestroy {
       state: {
         item: {
           id: data.id,
-          name: data.name,
-          // company_id: data.company_id,
-          // name_th: data.name_th,
-          // name_en: data.name_en,
+          code: data.code,
+          name_th: data.name_th,
+          name_en: data.name_en,
           role: '',
-        }
-      }
+        },
+      },
     };
 
-    this.router.navigate(['base/position/edit'], navigationExtras);
+    this.router.navigate(['base/position-level/edit'], navigationExtras);
   }
 
-  onDelete(positionId: number): void {
+  onDelete(positionlevelId: number): void {
     if (window.confirm('Do you really want remove this data')) {
       this.positionlevelSvc
-        .delete(positionId)
+        .delete(positionlevelId)
         .pipe(takeUntil(this.destroy$))
         .subscribe((res: PositionLevelResponse) => {
-          if (res.code === 201) {
+          // if (res.code === 201) {
             this.rerender();
-          }
+          // }
         });
     }
   }

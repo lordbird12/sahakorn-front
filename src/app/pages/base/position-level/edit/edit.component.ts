@@ -50,17 +50,19 @@ export class EditComponent implements AfterViewInit, OnInit, OnDestroy {
     this.positionlevelForm.baseForm.get('role').updateValueAndValidity();
   }
 
+
   onUpdate(): void {
 
     if (this.positionlevelForm.baseForm.invalid) {
       return;
     }
     const formValue = this.positionlevelForm.baseForm.value;
-    console.log(formValue);
+    // console.log(formValue);
     // return false
     if (this.actionTODO === Action.EDIT) {
       this.positionlevelSvc.update(formValue.id, formValue).subscribe((res) => {
-        this.router.navigate(['base/branch/list']);
+        alert("บันทึกข้อมูลสำเร็จ");
+        this.router.navigate(['base/position-level/list']);
       });
     }
   }

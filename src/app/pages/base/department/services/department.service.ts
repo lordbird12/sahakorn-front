@@ -9,7 +9,7 @@ import {
 import { Observable, throwError } from 'rxjs';
 import { Injectable } from '@angular/core';
 import { environment } from '@env/environment';
-import { DepartmentResponse, Department } from '@app/shared/models/base.interface';
+import { DepartmentResponse, Department ,BranchResponse} from '@app/shared/models/base.interface';
 import { catchError, map } from 'rxjs/operators';
 const user = JSON.parse(localStorage.getItem('user')) || null;
 @Injectable({
@@ -24,8 +24,6 @@ export class DepartmentService {
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
     return next.handle(this.addToken(request));
   }
-
-
 
   addToken(request: HttpRequest<unknown>): HttpRequest<unknown> {
     const requestWithHeader = request.clone({
@@ -74,6 +72,12 @@ export class DepartmentService {
   delete(departmentId: number): Observable<{}> {
     return this.http
       .delete<Department>(`${environment.API_URL}/api/department/${departmentId}`, this.httpOptions)
+      .pipe(catchError(this.handlerError));
+  }
+
+  getBranch(): Observable<BranchResponse> {
+    return this.http
+      .get<any>(`${environment.API_URL}/api/branch`, this.httpOptions)
       .pipe(catchError(this.handlerError));
   }
 

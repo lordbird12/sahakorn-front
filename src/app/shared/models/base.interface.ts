@@ -3,13 +3,27 @@ export type Roles = 'SUSCRIPTOR' | 'ADMIN';
 
 // company
 export interface Company {
-  id: number;
+  company_id: number;
   name_th: string;
   name_en: string;
-  create_by: string;
-  update_by: string;
-  created_at: string;
-  updated_at: string;
+  abbreviation: string;
+  tax_id: string;
+  bank_id: string;
+  bank_name: string;
+  account_name: string;
+  bank_batch: string;
+  address: string;
+  village: string;
+  road: string;
+  sub_district: string;
+  district: string;
+  province_id: string;
+  zipcode: string;
+  phone: string;
+  fax: string;
+  map: string;
+  logo: string;
+
 }
 
 export interface CompanyResponse extends Company {
@@ -24,12 +38,49 @@ export interface CompanyResponse extends Company {
   };
 }
 
+// privince
+export interface Province {
+  id: number;
+  name_th: string;
+  name_en: string;
+  zone: string;
+  create_by: string;
+  update_by: string;
+  created_at: string;
+  updated_at: string;
+}
+
+export interface ProvinceResponse extends Province {
+  code: number;
+  status: string;
+  message: string;
+  data: {
+    data: any[],
+    draw: number;
+    to: number;
+    total: number;
+  };
+}
+
+
 // branch
 export interface Branch {
   id: number;
-  name: string;
+  code: number;
+  name_th: string;
+  name_en: string;
+  address: [];
+  village: string;
+  road: [];
+  sub_district: [];
+  district: [];
+  province_id: number;
+  zipcode: [];
+  phone: [];
+  fax: string;
+  map: [];
   create_by: string;
-  update_by: string;
+  update_by: [];
   created_at: string;
   updated_at: string;
 
@@ -51,6 +102,7 @@ export interface BranchResponse extends Branch {
 // division
 export interface Division {
   id: number;
+  code: number;
   name_th: string;
   name_en: string;
   create_by: string;
@@ -75,7 +127,10 @@ export interface DivisionResponse extends Division {
 // department
 export interface Department {
   id: number;
-  name: string;
+  code: number;
+  branch_id: number;
+  name_th: string;
+  name_en: string;
   create_by: string;
   update_by: string;
   created_at: string;
@@ -92,15 +147,40 @@ export interface DepartmentResponse extends Department {
     to: number;
     total: number;
   };
-  role: Roles;
+  // role: Roles;
+}
+
+// persontype
+export interface PersonType {
+  id: number;
+  code: number;
+  name_th: string;
+  name_en: string;
+  create_by: string;
+  update_by: string;
+  created_at: string;
+  updated_at: string;
+}
+
+export interface PersonTypeResponse extends PersonType {
+  code: number;
+  status: string;
+  message: string;
+  data: {
+    data: any[],
+    draw: number;
+    to: number;
+    total: number;
+  };
+
 }
 
 // position
 export interface Position {
   id: number;
-  name: string;
-  // name_th: string;
-  // name_en: string;
+  code: number;
+  name_th: string;
+  name_en: string;
   create_by: string;
   update_by: string;
   created_at: string;
@@ -123,7 +203,7 @@ export interface PositionResponse extends Position {
 // position type
 export interface PositionType {
   id: number;
-  // name: string;
+  code: number;
   name_th: string;
   name_en: string;
   create_by: string;
@@ -145,9 +225,35 @@ export interface PositionTypeResponse extends PositionType {
 
 }
 
+// position group
+export interface PositionGroup {
+  id: number;
+  code: number;
+  name_th: string;
+  name_en: string;
+  create_by: string;
+  update_by: string;
+  created_at: string;
+  updated_at: string;
+}
+
+export interface PositionGroupResponse extends PositionGroup {
+  code: number;
+  status: string;
+  message: string;
+  data: {
+    data: any[],
+    draw: number;
+    to: number;
+    total: number;
+  };
+
+}
+
 // position level
 export interface PositionLevel {
   id: number;
+  code: number;
   name_th: string;
   name_en: string;
   create_by: string;
@@ -317,59 +423,39 @@ export interface StockResponse extends Stock {
 // employee
 export interface Employee {
   id: number;
-  prefix_id: string;
-  company_id: string;
-  permission_id: number;
+  person_id: number;
+  prefix_id: number;
+  company_id: number;
   branch_id: number;
-  division_id: string;
+  division_id: number;
   department_id: number;
-  position_id: string;
-  person_type_id: string;
-  position_group_id: string;
-  position_type_id: string;
-  position_level_id: string;
-  person_id: string;
+  position_id: number;
+  person_type_id: number;
+  position_group_id: [];
+  position_type_id: [];
+  position_level_id:[];
   card_id: string;
   name: string;
   name_en: string;
   status: string;
   work: string;
   sex: string;
-  position_number: string;
-  phone: string;
-  email: string;
+  position_number: [];
   id_card: string;
+  email: string;
+  photo: string;
+  phone: [];
   birthday: string;
-  date_start_work: string;
-  date_test_work: string;
-  date_retire: string;
-  date_disable: string;
-  date_leaved: string;
-  leaved_id: string;
-  pic: string;
-  sort: string;
-  create_by: string;
-  update_by: string;
+  start_work_date: string;
+  pass_testing_date: string;
+  retire_date: [];
+  disable_date: [];
+  resign_date: [];
+  resign_id: [];
+  create_by: [];
+  update_by: [];
   created_at: string;
   updated_at: string;
-  deleted_at: string;
-  image: string;
-  image_url: string;
-  signature: string;
-  signature_url: string;
-  line_token: string;
-  prefix: [];
-  company: [];
-  branch: [];
-  division: [];
-  department: [];
-  position: [];
-  position_group: [];
-  person_type: string;
-  position_type: [];
-  position_level: [];
-  leaved: [];
-  No: number;
 
 }
 
@@ -383,23 +469,11 @@ export interface EmployeeResponse extends Employee {
     to: number;
     total: number;
   };
-  role: Roles;
+  // role: Roles;
 }
 
 
 export interface Gender {
-  id: number;
-  name_th: string;
-  name_en: string;
-  create_by: string;
-  update_by: string;
-  created_at: string;
-  updated_at: string;
-}
-
-
-export interface Prefix {
-
   id: number;
   name_th: string;
   name_en: string;
@@ -417,14 +491,37 @@ export interface GenderResponse extends Gender {
   data: [];
   role: Roles;
 }
+//prefix
+export interface Prefix {
+
+  id: number;
+  code: number;
+  name_th: string;
+  name_en: string;
+  create_by: string;
+  update_by: string;
+  created_at: string;
+  updated_at: string;
+}
 
 export interface PrefixResponse extends Prefix {
 
-  code: string;
+  code: number;
   status: string;
   message: string;
-  data: [];
-  role: Roles;
+  data: {
+    data: any[],
+    draw: number;
+    to: number;
+    total: number;
+  };
+
+  // code: number;
+  // status: string;
+  // message: string;
+  // data: [];
+  // role: Roles;
+
 }
 
 export interface Permission {
@@ -715,18 +812,95 @@ export interface CooperativeResponse extends Cooperative {
     total: number;
   };
 }
+
+//cooperative-members
+export interface CooperativeMember {
+  id: number;
+  person_id: string;
+  member_id: string;
+  type: string;
+  status: string;
+  share_qty: string;
+  share_amount: string;
+  sum_share_qty: string;
+  sum_share_amount: string;
+  share_pay: number;
+  share_doc: [];
+  member_doc: [];
+  member_date: string;
+  resign_doc: [];
+  resign_date: [];
+  resign_id: [];
+  reason: [];
+  create_by:[];
+  update_by: [];
+  created_at: [];
+  updated_at: string;
+}
+
+export interface CooperativeMembersResponse extends CooperativeMember {
+  code: string;
+  status: string;
+  message: string;
+  data: {
+    data: any[],
+    draw: number;
+    to: number;
+    total: number;
+  };
+}
+
+//cooperative-board
+export interface CooperativeBoard {
+  id: number;
+  account_year_id: number;
+  status: string;
+  position: string;
+  member_id: string;
+  start_date: string;
+  end_date: string;
+  term: number;
+  year: string;
+  phase: string;
+  resign_id: number;
+  create_by: [];
+  update_by: [];
+  created_at: string;
+  updated_at: string;
+
+}
+
+export interface CooperativeResponse extends CooperativeBoard {
+  code: string;
+  status: string;
+  message: string;
+  data: {
+    data: any[],
+    draw: number;
+    to: number;
+    total: number;
+  };
+}
+
+
 //loantype
 export interface Loantype {
   id: number;
   name: string;
   description: string;
   abbreviation: string;
-  interest_rate: string;
   share: string;
+  supporter: number;
   member_age: number;
   supporter_age: number;
+  sup_num: number;
+
+
+  interest_rate: string;
+
+
+
   account_name: string;
-  supporter: number;
 
 }
 

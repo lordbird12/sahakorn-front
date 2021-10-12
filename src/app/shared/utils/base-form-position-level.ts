@@ -12,8 +12,16 @@ export class BaseFormPositionLevel {
     id: [
       '',
     ],
+    code: [
+      '',
+      [Validators.required],
+    ],
 
-    name: [
+    name_th: [
+      '',
+      [Validators.required],
+    ],
+    name_en: [
       '',
       [Validators.required],
     ],

@@ -6,15 +6,17 @@ import { PrefixRoutingModule } from './prefix-routing.module';
 import { EditComponent } from './edit/edit.component';
 import { ListComponent } from './list/list.component';
 import { FormComponent } from './form/form.component';
+import { DataTablesModule } from 'angular-datatables';
 
-
+console.warn('Prefix module');
 @NgModule({
   declarations: [EditComponent, ListComponent, FormComponent],
   imports: [
     CommonModule,
     PrefixRoutingModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    DataTablesModule
   ]
 })
 export class PrefixModule { }

@@ -61,6 +61,7 @@ export class EditComponent implements AfterViewInit, OnInit, OnDestroy {
     // return false
     if (this.actionTODO === Action.EDIT) {
       this.companySvc.update(formValue.id, formValue).subscribe((res) => {
+        alert("บันทึกข้อมูลสำเร็จ");
         this.router.navigate(['base/company/list']);
       });
     }

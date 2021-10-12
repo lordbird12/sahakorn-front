@@ -26,6 +26,7 @@ export class FormComponent implements AfterViewInit, OnInit, OnDestroy {
   showPasswordField = true;
   hide = true;
   private subscription: Subscription = new Subscription();
+  public BranchData: any = [];
 
   constructor(
     private departmentSvc: DepartmentService,
@@ -44,7 +45,16 @@ export class FormComponent implements AfterViewInit, OnInit, OnDestroy {
   ngOnInit(): void {
     this.departmentForm.baseForm.get('role').setValidators(null);
     this.departmentForm.baseForm.get('role').updateValueAndValidity();
+    this.GetBranch();
   }
+
+  GetBranch(): void {
+    this.departmentSvc.getBranch().subscribe(resp => {
+      this.BranchData = resp.data;
+      console.log(this.BranchData);
+    });
+  }
+
 
   onAdd(): void {
     if (this.departmentForm.baseForm.invalid) {

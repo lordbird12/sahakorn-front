@@ -14,59 +14,60 @@ export class BaseFormLoantype {
     ],
     name: [
       '',
-      // [Validators.required],
+      [Validators.required],
     ],
     description: [
       '',
-      // [Validators.required],
+      [Validators.required],
     ],
     abbreviation: [
       '',
-      // [Validators.required],
+      [Validators.required],
     ],
     interest_rate: [
       '',
-      // [Validators.required],
+      [Validators.required],
     ],
     member_age: [
       '',
-      // [Validators.required],
+      [Validators.required],
     ],
     supporter_age: [
       '',
-      // [Validators.required],
+      [Validators.required],
+
     ],
     share: [
       '',
-      // [Validators.required],
+      [Validators.required],
     ],
     supporter: [
       '',
-      // [Validators.required],
+      [Validators.required],
     ],
     property: [
       '',
-      // [Validators.required],
+      [Validators.required],
     ],
     sup_num: [
       '',
-      // [Validators.required],
+      [Validators.required],
     ],
     share_limit: [
       '',
-      // [Validators.required],
+      [Validators.required],
     ],
     share_time: [
       '',
-      // [Validators.required],
+      [Validators.required],
     ],
     share_doc: [
       '',
-      // [Validators.required],
+      [Validators.required],
     ],
     share_process: [
       '',
-      // [Validators.required],
+      [Validators.required],
     ],
     supporter_limit: [
       '',
@@ -80,10 +81,18 @@ export class BaseFormLoantype {
       '',
       // [Validators.required],
     ],
-    // supporter_process: [
-    //   '',
-    //   [Validators.required],
-    // ],
+    supporter_process: [
+      '',
+      // [Validators.required],
+    ],
+    objective: [
+      '',
+      // [Validators.required],
+    ],
+    remark: [
+      '',
+      // [Validators.required],
+    ],
 
     role: ['', [Validators.required]],
   });

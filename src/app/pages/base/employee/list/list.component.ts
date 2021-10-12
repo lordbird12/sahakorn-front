@@ -42,7 +42,10 @@ export class ListComponent implements AfterViewInit, OnInit, OnDestroy {
   dtElement!: DataTableDirective;
 
   @ViewChild(MatSort) sort: MatSort;
-  constructor(private router: Router, private employeeSvc: EmployeeService, private elementRef: ElementRef, private renderer: Renderer2) { }
+  constructor(private router: Router,
+    private employeeSvc: EmployeeService,
+    private elementRef: ElementRef,
+    private renderer: Renderer2) { }
 
   ngOnDestroy(): void {
     this.destroy$.next({});
@@ -96,7 +99,7 @@ export class ListComponent implements AfterViewInit, OnInit, OnDestroy {
       ajax: (dataTablesParameters: any, callback) => {
         that.employeeSvc.getAll(dataTablesParameters).subscribe(resp => {
           that.dataRow = resp.data.data;
-          console.log(this.dataRow);
+          // console.log(this.dataRow);
           callback({
             recordsTotal: resp.data.total,
             recordsFiltered: resp.data.total,
@@ -105,14 +108,40 @@ export class ListComponent implements AfterViewInit, OnInit, OnDestroy {
         });
       },
       columns: [
-        { data: 'No' },
-        { data: 'image' },
+        { data: 'id' },
+        // { data: 'person_id' },
+        // { data: 'prefix_id' },
+        // { data: 'company_id' },
+        { data: 'branch_id' },
+        // { data: 'division_id.name_th' },
+        { data: 'department_id' },
+        { data: 'position_id' },
+        // { data: 'person_type_id.name_th' },
+        // { data: 'position_group_id.name_th' },
+        // { data: 'position_type_id.name_th' },
+        // { data: 'position_level_id.name_th' },
+        // { data: 'card_id' },
         { data: 'name' },
-        { data: 'department.name' },
-        { data: 'permission.name' },
-        { data: 'branch.name' },
-        { data: 'create_by' },
+        // { data: 'name_en' },
         { data: 'status' },
+        // { data: 'work' },
+        // { data: 'sex' },
+        // { data: 'position_number' },
+        // { data: 'id_card' },
+        // { data: 'email' },
+        { data: 'photo' },
+        // { data: 'phone' },
+        // { data: 'birthday' },
+        // { data: 'start_work_date' },
+        // { data: 'pass_testing_date' },
+        // { data: 'retire_date' },
+        // { data: 'disable_date' },
+        // { data: 'resign_date' },
+        // { data: 'resign_id' },
+        // { data: 'create_by' },
+        // { data: 'update_by' },
+        // { data: 'created_at' },
+        // { data: 'updated_at' },
         { data: 'action', orderable: false }
       ]
     };

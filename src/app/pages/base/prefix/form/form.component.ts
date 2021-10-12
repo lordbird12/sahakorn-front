@@ -1,5 +1,5 @@
 import { map, takeUntil } from 'rxjs/operators';
-import { PrefixService } from './../services/services.service';
+import { PrefixService } from '../services/prefix.service';
 import {
   AfterViewInit,
   Component,
@@ -36,7 +36,10 @@ export class FormComponent implements AfterViewInit, OnInit, OnDestroy {
     private router: Router,
     public prefixForm: BaseFormPrefix,
     public activatedRoute: ActivatedRoute
-  ) { }
+  ) {
+    // console.log('extras', this.router.getCurrentNavigation().extras.state.item);
+    // this.prefixForm.baseForm.setValue(this.router.getCurrentNavigation().extras.state.item);
+  }
 
   ngOnDestroy(): void {
     this.subscription.unsubscribe();
@@ -47,29 +50,33 @@ export class FormComponent implements AfterViewInit, OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
-    this.activatedRoute
-      .queryParams
-      .subscribe(params => {
-        console.log(params);
+    // this.activatedRoute
+    //   .queryParams
+    //   .subscribe(params => {
+    //     console.log(params);
 
-      });
+    //   });
 
 
     this.prefixForm.baseForm.get('role').setValidators(null);
     this.prefixForm.baseForm.get('role').updateValueAndValidity();
   }
 
+
+
   onAdd(): void {
-    // console.log('test');
+
     if (this.prefixForm.baseForm.invalid) {
+      alert("กรอกข้อมูลไม่ครบกรุณาตรวจสอบ");
       return;
     }
 
     const formValue = this.prefixForm.baseForm.value;
-    // console.log(formValue);
-    // return false
+    console.log(formValue);
+
     if (this.actionTODO === Action.NEW) {
       this.prefixSvc.new(formValue).subscribe((res) => {
+        console.log('New ', res);
         this.router.navigate(['base/prefix/list']);
       });
     }

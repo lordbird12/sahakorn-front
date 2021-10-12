@@ -1,5 +1,5 @@
 import { map, takeUntil } from 'rxjs/operators';
-import { PrefixService } from './../services/services.service';
+import { PrefixService } from '../services/prefix.service';
 import {
   AfterViewInit,
   Component,
@@ -65,5 +65,22 @@ export class EditComponent implements AfterViewInit, OnInit, OnDestroy {
       });
     }
   }
+
+
+  // onUpdate(): void {
+
+  //   if (this.loantypeForm.baseForm.invalid) {
+  //     return;
+  //   }
+  //   const formValue = this.loantypeForm.baseForm.value;
+  //   console.log(formValue);
+  //   // return false
+  //   if (this.actionTODO === Action.EDIT) {
+  //     this.loantypeSvc.update(formValue.id, formValue).subscribe((res) => {
+  //       alert("บันทึกสำเร็จ");
+  //       this.router.navigate(['managecooperative/loantype/list']);
+  //     });
+  //   }
+  // }
 
 }

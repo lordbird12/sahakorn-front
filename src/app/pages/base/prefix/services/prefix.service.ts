@@ -20,6 +20,9 @@ export class PrefixService {
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json', Authorization: `Bearer ${user.token}` })
   };
+  httpOptionsFormdata = {
+    headers: new HttpHeaders({ Authorization: `Bearer ${user.token}` })
+  };
 
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
     return next.handle(this.addToken(request));
@@ -34,9 +37,9 @@ export class PrefixService {
     return requestWithHeader;
   }
 
-  getAll(): Observable<PrefixResponse> {
+  getAll(dataTablesParameters: any): Observable<PrefixResponse> {
     return this.http
-      .get<PrefixResponse>(`${environment.API_URL}/api/company`, this.httpOptions)
+      .post<PrefixResponse>(`${environment.API_URL}/api/prefix_page`, dataTablesParameters, this.httpOptions)
       .pipe(
         map((prefix: PrefixResponse) => {
           return prefix;
@@ -45,25 +48,39 @@ export class PrefixService {
 
   getById(userId: number): Observable<Prefix> {
     return this.http
-      .get<any>(`${environment.API_URL}/api/company/${userId}`)
+      .get<any>(`${environment.API_URL}/api/prefix_page/${userId}`)
       .pipe(catchError(this.handlerError));
   }
 
   new(prefix: Prefix): Observable<Prefix> {
+    console.log(this.httpOptions);
     return this.http
-      .post<Prefix>(`${environment.API_URL}/api/company`, prefix, this.httpOptions)
+      .post<Prefix>(`${environment.API_URL}/api/prefix`, prefix, this.httpOptions)
       .pipe(catchError(this.handlerError));
   }
+
+  // new(prefix: prefix): Observable<prefix> {
+  //   console.log(this.httpOptions);
+  //   return this.http
+  //     .post<prefix>(`${environment.API_URL}/api/prefix`, prefix, this.httpOptions)
+  //     .pipe(catchError(this.handlerError));
+  // }
 
   update(prefixId: number, prefix: Prefix): Observable<Prefix> {
     return this.http
-      .patch<Prefix>(`${environment.API_URL}/api/company/${prefixId}`, prefix, this.httpOptions)
+      .patch<Prefix>(`${environment.API_URL}/api/prefix/${prefixId}`, prefix, this.httpOptions)
       .pipe(catchError(this.handlerError));
   }
 
+  // update(positionId: number, position: PositionType): Observable<PositionType> {
+  //   return this.http
+  //     .patch<PositionType>(`${environment.API_URL}/api/position_type/${positionId}`, position, this.httpOptions)
+  //     .pipe(catchError(this.handlerError));
+  // }
+
   delete(prefixId: number): Observable<{}> {
     return this.http
-      .delete<Prefix>(`${environment.API_URL}/api/company/${prefixId}`, this.httpOptions)
+      .delete<Prefix>(`${environment.API_URL}/api/prefix/${prefixId}`, this.httpOptions)
       .pipe(catchError(this.handlerError));
   }
 

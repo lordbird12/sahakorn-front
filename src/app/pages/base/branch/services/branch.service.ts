@@ -9,7 +9,7 @@ import {
 import { Observable, throwError } from 'rxjs';
 import { Injectable } from '@angular/core';
 import { environment } from '@env/environment';
-import { BranchResponse, Branch } from '@app/shared/models/base.interface';
+import { BranchResponse, Branch ,ProvinceResponse} from '@app/shared/models/base.interface';
 import { catchError, map } from 'rxjs/operators';
 const user = JSON.parse(localStorage.getItem('user')) || null;
 @Injectable({
@@ -77,6 +77,12 @@ export class BranchService {
         catchError((err) => this.handlerError(err))
         );
   }
+  getProvince(): Observable<ProvinceResponse> {
+    return this.http
+      .get<any>(`${environment.API_URL}/api/province`, this.httpOptions)
+      .pipe(catchError(this.handlerError));
+  }
+
 
   handlerError(error): Observable<never> {
     let errorMessage = 'Error unknown';

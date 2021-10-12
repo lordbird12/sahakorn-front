@@ -69,7 +69,7 @@ export class LoantypeService {
 
   delete(loantypeId: number): Observable<{}> {
     return this.http
-      .delete<LoantypeResponse>(`${environment.API_URL}/api/cooperative/2`, this.httpOptions)
+      .delete<LoantypeResponse>(`${environment.API_URL}/api/cooperative/${loantypeId}`, this.httpOptions)
       .pipe(
         map((loantypeId: LoantypeResponse) => {
           return loantypeId;

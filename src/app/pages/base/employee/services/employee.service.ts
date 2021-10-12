@@ -9,7 +9,16 @@ import {
 import { Observable, throwError } from 'rxjs';
 import { Injectable } from '@angular/core';
 import { environment } from '@env/environment';
-import { EmployeeResponse, Employee, PermissionResponse, DepartmentResponse, BranchResponse, PositionResponse } from '@app/shared/models/base.interface';
+import { EmployeeResponse, Employee, DepartmentResponse,
+  BranchResponse,
+  PrefixResponse,
+  CompanyResponse,
+  DivisionResponse,
+  PersonTypeResponse,
+  PositionGroupResponse,
+  PositionTypeResponse,
+  PositionLevelResponse,
+  PositionResponse } from '@app/shared/models/base.interface';
 import { catchError, map } from 'rxjs/operators';
 const user = JSON.parse(localStorage.getItem('user')) || null;
 @Injectable({
@@ -39,16 +48,22 @@ export class EmployeeService {
 
   getAll(dataTablesParameters: any): Observable<EmployeeResponse> {
     return this.http
-      .post<EmployeeResponse>(`${environment.API_URL}/api/user_page`, dataTablesParameters, this.httpOptions)
+      .post<EmployeeResponse>(`${environment.API_URL}/api/person_page`, dataTablesParameters, this.httpOptions)
       .pipe(
         map((employee: EmployeeResponse) => {
           return employee;
         }));
   }
 
-  getDepartment(): Observable<DepartmentResponse> {
+  getPrefix(): Observable<PrefixResponse> {
     return this.http
-      .get<any>(`${environment.API_URL}/api/department`, this.httpOptions)
+      .get<any>(`${environment.API_URL}/api/prefix`, this.httpOptions)
+      .pipe(catchError(this.handlerError));
+  }
+
+  getCompany(): Observable<CompanyResponse> {
+    return this.http
+      .get<any>(`${environment.API_URL}/api/company`, this.httpOptions)
       .pipe(catchError(this.handlerError));
   }
 
@@ -58,18 +73,47 @@ export class EmployeeService {
       .pipe(catchError(this.handlerError));
   }
 
+  getDivition(): Observable<DivisionResponse> {
+    return this.http
+      .get<any>(`${environment.API_URL}/api/division`, this.httpOptions)
+      .pipe(catchError(this.handlerError));
+  }
+
+  getDepartment(): Observable<DepartmentResponse> {
+    return this.http
+      .get<any>(`${environment.API_URL}/api/department`, this.httpOptions)
+      .pipe(catchError(this.handlerError));
+  }
+
   getPosition(): Observable<PositionResponse> {
     return this.http
       .get<any>(`${environment.API_URL}/api/position`, this.httpOptions)
       .pipe(catchError(this.handlerError));
   }
 
-  getPermission(): Observable<PermissionResponse> {
+  getPersosType(): Observable<PersonTypeResponse> {
     return this.http
-      .get<any>(`${environment.API_URL}/api/permission`, this.httpOptions)
+      .get<any>(`${environment.API_URL}/api/person_type`, this.httpOptions)
       .pipe(catchError(this.handlerError));
   }
 
+  getPositionGroup(): Observable<PositionGroupResponse> {
+    return this.http
+      .get<any>(`${environment.API_URL}/api/position_group`, this.httpOptions)
+      .pipe(catchError(this.handlerError));
+  }
+
+  getPositionType(): Observable<PositionTypeResponse> {
+    return this.http
+      .get<any>(`${environment.API_URL}/api/position_type`, this.httpOptions)
+      .pipe(catchError(this.handlerError));
+  }
+
+  getPositionLevel(): Observable<PositionLevelResponse> {
+    return this.http
+      .get<any>(`${environment.API_URL}/api/position_level`, this.httpOptions)
+      .pipe(catchError(this.handlerError));
+  }
 
   getById(userId: number): Observable<Employee> {
     return this.http
@@ -79,26 +123,19 @@ export class EmployeeService {
 
   new(employee: FormData): Observable<Employee> {
     return this.http
-      .post<Employee>(`${environment.API_URL}/api/user`, employee, this.httpOptionsFormdata)
+      .post<Employee>(`${environment.API_URL}/api/person`, employee, this.httpOptionsFormdata)
       .pipe(catchError(this.handlerError));
   }
 
   update(userId: number, employee: FormData): Observable<Employee> {
     return this.http
-      .post<Employee>(`${environment.API_URL}/api/update_user`, employee, this.httpOptionsFormdata)
+      .post<Employee>(`${environment.API_URL}/api/person`, employee, this.httpOptionsFormdata)
       .pipe(catchError(this.handlerError));
   }
 
-  // changestatus(employeeId: number, employee: Employee): Observable<Employee> {
-  //   return this.http
-  //     .patch<Employee>(`${environment.API_URL}/api/activate_user/${employeeId}`, employee, this.httpOptions)
-  //     .pipe(catchError(this.handlerError));
-  // }
-
-
   delete(employeeId: number): Observable<{}> {
     return this.http
-      .delete<Employee>(`${environment.API_URL}/api/user/${employeeId}`, this.httpOptions)
+      .delete<Employee>(`${environment.API_URL}/api/person/${employeeId}`, this.httpOptions)
       .pipe(
         map((employee: EmployeeResponse) => {
           return employee;

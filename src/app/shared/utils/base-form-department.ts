@@ -12,8 +12,19 @@ export class BaseFormDepartment {
     id: [
       '',
     ],
-
-    name: [
+    branch_id: [
+      '',
+      [Validators.required],
+    ],
+    code: [
+      '',
+      [Validators.required],
+    ],
+    name_th: [
+      '',
+      [Validators.required],
+    ],
+    name_en: [
       '',
       [Validators.required],
     ],

@@ -7,9 +7,10 @@ import {
   ViewChild,
   OnDestroy,
 } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { BaseFormPositionLevel } from '@shared/utils/base-form-position-level';
-import { Subscription } from 'rxjs';
+import { Subscription, Observable } from 'rxjs';
+import { PositionLevelResponse } from '@app/shared/models/base.interface';
 enum Action {
   EDIT = 'edit',
   NEW = 'new',
@@ -26,11 +27,13 @@ export class FormComponent implements AfterViewInit, OnInit, OnDestroy {
   showPasswordField = true;
   hide = true;
   private subscription: Subscription = new Subscription();
+  state: Observable<PositionLevelResponse>;
 
   constructor(
-    private educationSvc: PositionLevelService,
+    private positionlevelSvc: PositionLevelService,
     private router: Router,
-    public positionlevelForm: BaseFormPositionLevel
+    public positionlevelForm: BaseFormPositionLevel,
+    public activatedRoute: ActivatedRoute
   ) { }
 
   ngOnDestroy(): void {
@@ -38,7 +41,7 @@ export class FormComponent implements AfterViewInit, OnInit, OnDestroy {
   }
 
   ngAfterViewInit(): void {
-    console.log('test');
+    // console.log('test');
   }
 
   ngOnInit(): void {
@@ -48,14 +51,15 @@ export class FormComponent implements AfterViewInit, OnInit, OnDestroy {
 
   onAdd(): void {
     if (this.positionlevelForm.baseForm.invalid) {
+      alert("กรอกข้อมูลไม่ครบกรุณาตรวจสอบ");
       return;
     }
 
     const formValue = this.positionlevelForm.baseForm.value;
     if (this.actionTODO === Action.NEW) {
-      this.educationSvc.new(formValue).subscribe((res) => {
+      this.positionlevelSvc.new(formValue).subscribe((res) => {
         console.log('New ', res);
-        this.router.navigate(['base/branch/list']);
+        this.router.navigate(['base/position-level/list']);
       });
     }
   }

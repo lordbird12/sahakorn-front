@@ -9,7 +9,7 @@ export class BaseFormCompany {
   constructor(private fb: FormBuilder) { }
 
   baseForm = this.fb.group({
-    id: [
+    company_id: [
       '',
     ],
     name_th: [
@@ -17,6 +17,74 @@ export class BaseFormCompany {
       [Validators.required],
     ],
     name_en: [
+      '',
+      [Validators.required],
+    ],
+    abbreviation: [
+      '',
+      [Validators.required],
+    ],
+    tax_id: [
+      '',
+      [Validators.required],
+    ],
+    bank_id: [
+      '',
+      [Validators.required],
+    ],
+    bank_name: [
+      '',
+      [Validators.required],
+    ],
+    account_name: [
+      '',
+      [Validators.required],
+    ],
+    bank_batch: [
+      '',
+      [Validators.required],
+    ],
+    address: [
+      '',
+      [Validators.required],
+    ],
+    village: [
+      '',
+      [Validators.required],
+    ],
+    road: [
+      '',
+      [Validators.required],
+    ],
+    sub_district: [
+      '',
+      [Validators.required],
+    ],
+    district: [
+      '',
+      [Validators.required],
+    ],
+    province_id: [
+      '',
+      [Validators.required],
+    ],
+    zipcode: [
+      '',
+      [Validators.required],
+    ],
+    phone: [
+      '',
+      [Validators.required],
+    ],
+    fax: [
+      '',
+      [Validators.required],
+    ],
+    map: [
+      '',
+      [Validators.required],
+    ],
+    logo: [
       '',
       [Validators.required],
     ],

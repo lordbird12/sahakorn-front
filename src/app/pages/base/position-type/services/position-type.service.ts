@@ -20,6 +20,9 @@ export class PositionTypeService {
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json', Authorization: `Bearer ${user.token}` })
   };
+  httpOptionsFormdata = {
+    headers: new HttpHeaders({ Authorization: `Bearer ${user.token}` })
+  };
 
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
     return next.handle(this.addToken(request));
@@ -43,7 +46,7 @@ export class PositionTypeService {
 
   getAll(dataTablesParameters: any): Observable<PositionTypeResponse> {
     return this.http
-      .post<PositionTypeResponse>(`${environment.API_URL}/api/person_type_page`, dataTablesParameters, this.httpOptions)
+      .post<PositionTypeResponse>(`${environment.API_URL}/api/position_type_page`, dataTablesParameters, this.httpOptions)
       .pipe(
         map((position: PositionTypeResponse) => {
           return position;
@@ -56,24 +59,25 @@ export class PositionTypeService {
       .pipe(catchError(this.handlerError));
   }
 
-  new(position: PositionType): Observable<PositionType> {
+  new(positiotype: PositionType): Observable<PositionType> {
+    console.log(this.httpOptions);
     return this.http
-      .post<PositionType>(`${environment.API_URL}/api/person_type`, position, this.httpOptions)
+      .post<PositionType>(`${environment.API_URL}/api/position_type`, positiotype, this.httpOptions)
       .pipe(catchError(this.handlerError));
   }
 
   update(positionId: number, position: PositionType): Observable<PositionType> {
     return this.http
-      .patch<PositionType>(`${environment.API_URL}/api/person_type/${positionId}`, position, this.httpOptions)
+      .patch<PositionType>(`${environment.API_URL}/api/position_type/${positionId}`, position, this.httpOptions)
       .pipe(catchError(this.handlerError));
   }
 
-  delete(positionId: number): Observable<{}> {
+  delete(positiontypeId: number): Observable<{}> {
     return this.http
-      .delete<PositionType>(`${environment.API_URL}/api/person_type/${positionId}`, this.httpOptions)
+      .delete<PositionType>(`${environment.API_URL}/api/position_type/${positiontypeId}`, this.httpOptions)
       .pipe(
-        map((position: PositionTypeResponse) => {
-          return position;
+        map((positiontype: PositionTypeResponse) => {
+          return positiontype;
         }),
         catchError((err) => this.handlerError(err))
         );

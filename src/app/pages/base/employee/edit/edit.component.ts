@@ -58,7 +58,7 @@ export class EditComponent implements AfterViewInit, OnInit, OnDestroy {
     this.GetDepartment();
     this.GetBranch();
     this.GetPosition();
-    this.GetPermission();
+    // this.GetPermission();
 
 
   }
@@ -83,13 +83,13 @@ export class EditComponent implements AfterViewInit, OnInit, OnDestroy {
     });
 
    }
-   GetPermission(): void {
-    this.employeeSvc.getPermission().subscribe(resp => {
-      this.PermissionData = resp.data;
-      console.log(this.PermissionData);
-    });
+  //  GetPermission(): void {
+  //   this.employeeSvc.getPermission().subscribe(resp => {
+  //     this.PermissionData = resp.data;
+  //     console.log(this.PermissionData);
+  //   });
 
-   }
+  //  }
 
   onUpdate(): void {
     const formData = new FormData();
@@ -105,6 +105,7 @@ export class EditComponent implements AfterViewInit, OnInit, OnDestroy {
     if (this.actionTODO === Action.EDIT)
     {
       this.employeeSvc.update(formValue.id, formData).subscribe((res) => {
+        alert("บันทึกข้อมูลสำเร็จ");
         this.router.navigate(['base/employee/list']);
       });
     }

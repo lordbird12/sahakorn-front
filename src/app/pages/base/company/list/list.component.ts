@@ -62,37 +62,8 @@ export class ListComponent implements AfterViewInit, OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
-    // this.headers = new HttpHeaders();
-
-    // this.headers = this.headers.append('Authorization', "Bearer " + localStorage.getItem(''));
 
     this.loadTable();
-    // this.branchSvc.getAll().subscribe((branch) => {
-    //   this.dataRow = branch.data;
-    //   console.log(this.dataRow);
-
-    //   const script = this.renderer.createElement('script');
-    //   script.src = 'assets/plugins/datatable/js/dataTables.buttons.min.js';
-    //   script.onload = () => {
-    //     console.log('script loaded');
-    //     const table = $('#example').DataTable({
-    //       // dom: 'lBfrtiBp',
-    //       lengthChange: true,
-    //       buttons: ['copy', 'excel', 'pdf', 'colvis'],
-    //       responsive: true,
-    //       language: {
-    //         searchPlaceholder: 'Search...',
-    //         sSearch: '',
-    //         lengthMenu: '_MENU_ ',
-    //       }
-    //     });
-    //     table.buttons().container()
-    //       .appendTo('#example_wrapper .col-md-6:eq(0)');
-
-    //   };
-    //   this.renderer.appendChild(this.elementRef.nativeElement, script);
-    //   // this.dataSource.data = company;
-    // });
 
   }
 
@@ -116,7 +87,7 @@ export class ListComponent implements AfterViewInit, OnInit, OnDestroy {
         });
       },
       columns: [
-        { data: 'id' },
+        { data: 'company_id' },
         { data: 'name_th' },
         { data: 'name_en' },
         { data: 'create_by' },
@@ -134,14 +105,32 @@ export class ListComponent implements AfterViewInit, OnInit, OnDestroy {
     const navigationExtras: NavigationExtras = {
       state: {
         item: {
-          id: data.id,
-          name: data.name,
+          company_id: data.company_id,
+          name_th: data.name_th,
+          name_en: data.name_en,
+          abbreviation: data.abbreviation,
+          tax_id: data.tax_id,
+          bank_id: data.bank_id,
+          bank_name: data.bank_name,
+          account_name: data.account_name,
+          bank_batch: data.bank_batch,
+          address: data.address,
+          village: data.village,
+          road: data.road,
+          sub_district: data.sub_district,
+          district: data.district,
+          province_id: data.province_id,
+          zipcode: data.zipcode,
+          phone: data.phone,
+          fax: data.fax,
+          map: data.map,
+          logo: data.logo,
           role: '',
         },
       },
     };
 
-    this.router.navigate(['base/branch/edit'], navigationExtras);
+    this.router.navigate(['base/company/edit'], navigationExtras);
   }
 
   onDelete(branchId: number): void {

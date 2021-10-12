@@ -86,8 +86,14 @@ export class ListComponent implements AfterViewInit, OnInit, OnDestroy {
       },
       columns: [
         { data: 'id' },
+        { data: 'code' },
         { data: 'name_th' },
         { data: 'name_en' },
+        { data: 'address' },
+        { data: 'road' },
+        { data: 'sub_district' },
+        { data: 'district' },
+        { data: 'province_id' },
         { data: 'create_by' },
         { data: 'update_by' },
         { data: 'created_at' },
@@ -104,7 +110,19 @@ export class ListComponent implements AfterViewInit, OnInit, OnDestroy {
       state: {
         item: {
           id: data.id,
-          name: data.name,
+          code: data.code,
+          name_th: data.name_th,
+          name_en: data.name_en,
+          address: data.address,
+          village: data.village,
+          road: data.road,
+          sub_district: data.sub_district,
+          district: data.district,
+          zipcode: data.zipcode,
+          phone: data.phone,
+          fax: data.fax,
+          map: data.map,
+          province_id: data.province_id,
           role: '',
         },
       },
@@ -119,9 +137,9 @@ export class ListComponent implements AfterViewInit, OnInit, OnDestroy {
         .delete(branchId)
         .pipe(takeUntil(this.destroy$))
         .subscribe((res: BranchResponse) => {
-          if (res.code === 201) {
+          // if (res.code === 201) {
             this.rerender();
-          }
+          // }
           // this.branchSvc.getAll().subscribe((branch) => {
           // this.dataRow = branch.data;
           // });

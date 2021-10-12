@@ -35,118 +35,170 @@
             </div>
             <div class="card-body">
               <div class="row">
-                <div class="col-xl-4 col-lg-4 col-sm-12">
+                <!-- <div class="col-xl-4 col-lg-4 col-sm-12">
                   <div class="text-center mb-5">
                     <h2>โปรไฟล์</h2>
                     <img style="width: 120px; height:100px; border-radius: 100px;" src="assets/images/noimage.png">
-                    <div class="text-center mb-5">
-                      <h2>ลายเซ็นต์</h2>
-                    <img style="width: 120px; height:100px; border-radius: 100px;" src="assets/images/nosig.png">
                   </div>
-                  </div>
-                  <div class="form-group">
-                    <label for="exampleInputPassword1">Password</label>
-                    <input type="password" class="form-control" formControlName="password">
-                    <div *ngIf="employeeForm.password.touched && employeeForm.password.invalid">
-                        <small *ngIf="employeeForm.password.errors.required" class="text-danger">Password is required<br></small>
-                        <small *ngIf="employeeForm.password.errors.minlength" class="text-danger">password must contain 6 characters at least</small>
-                    </div>
-                </div>
-                <div class="form-group">
-                  <label for="repeatPassword">Repeat Password</label>
-                  <input type="password" class="form-control" formControlName="confirm_password">
-                  <div *ngIf="employeeForm.confirm_password.touched && employeeForm.confirm_password.invalid">
-                      <small *ngIf="employeeForm.confirm_password.errors.required" class="text-danger">Repeat Password is required<br></small>
-                  </div>
-                  <div *ngIf="employeeForm.confirm_password.valid && employeeForm.confirm_password.value != employeeForm.password.value" class="text-danger">
-                      The passwords entered do not match
-                  </div>
-                </div>
-                  <!-- <div class="form-group">
-                  <label class="form-label">Password</label>
-                  <input type="password" class="form-control" formControlName="password" placeholder="Password" />
-                </div>
-                  <div class="form-group">
-                    <label class="form-label">Comfirm Password</label>
-                    <input type="password" class="form-control" formControlName="confirm_password" placeholder="Comfirm Password" />
-                  </div> -->
-                  <!-- <div class="form-group">
-                  <label class="form-label">Confirm Password</label>
-                  <input type="password" class="form-control"  formControlName="password" placeholder="Confirm Password">
                 </div> -->
-                </div>
-                <div class="col-xl-4 col-lg-4 col-sm-12">
+                <div class="col-xl-6 col-lg-6 col-sm-12">
                   <div class="form-group">
                     <label class="form-label">รหัสพนักงาน</label>
-                    <input type="text" formControlName="user_id" class="form-control" placeholder="User ID" />
+                    <input type="text" formControlName="person_id" class="form-control" placeholder="User ID" />
                   </div>
                   <div class="form-group">
-                    <label class="form-label">ชื่อพนักงาน</label>
+                    <label class="form-label">คำนำหน้า</label>
+                    <select class="custom-select" formControlName="prefix_id">
+                      <option value="" disabled selected>--เลือกคำนำหน้า--</option>
+                      <option *ngFor="let item of PrefixData; let i =index" value="{{ item.id }}">{{ item.name_th }}
+                      </option>
+                    </select>
+                  </div>
+                  <div class="form-group">
+                    <label class="form-label">ชื่อพนักงาน TH</label>
                     <input type="text" formControlName="name" class="form-control" placeholder="Employee Name" />
+                  </div>
+                  <div class="form-group">
+                    <label class="form-label">ชื่อพนักงาน EN</label>
+                    <input type="text" formControlName="name_en" class="form-control" placeholder="Employee Name" />
+                  </div>
+                  <div class="form-group">
+                    <label class="form-label">เลขบัตร</label>
+                    <input type="text" formControlName="card_id" class="form-control" placeholder="Card Id" />
+                  </div>
+                  <!-- <div class="custom-file mb-3"> -->
+                  <div class="form-group">
+                    <label class="form-label">เพศ</label>
+                    <select class="custom-select" formControlName="sex">
+                      <option value="" disabled selected>--select--</option>
+                      <option value="male">Male</option>
+                      <option value="female">Female</option>
+                    </select>
+                  </div>
+                  <div class="form-group">
+                    <label class="form-label">หมายเลขตำแหน่ง</label>
+                    <input type="text" formControlName="position_number" class="form-control"
+                      placeholder="Employee Name" />
+                  </div>
+                  <div class="form-group">
+                    <label class="form-label">เลขบัตรปชช</label>
+                    <input type="text" formControlName="id_card" class="form-control" placeholder="Id Card" />
                   </div>
                   <div class="form-group">
                     <label class="form-label">อีเมล</label>
                     <input type="email" formControlName="email" class="form-control" placeholder="Email" />
                     <div *ngIf="employeeForm.email.touched && employeeForm.email.invalid">
-                      <small *ngIf="employeeForm.email.errors.required" class="text-danger">Email is required<br></small>
+                      <small *ngIf="employeeForm.email.errors.required" class="text-danger">Email is
+                        required<br></small>
                       <!-- <small *ngIf="employeeForm.email.errors.pattern" class="text-danger">Email is Invalid<br></small> -->
+                    </div>
                   </div>
-                  </div>
+
                   <div class="custom-file mb-3">
-                    <input type="file" (change)='onChange($event)' class="custom-file-input"/>
+                    <input type="file" (change)='selectFile($event)' formControlName="photo" class="custom-file-input"/>
                     <label class="custom-file-label" for="customFile">Choose Your Picture Profile</label>
-                  </div>
-                  <div class="custom-file mb-3">
-                    <input type="file" (change)='onChangeSignature($event)' class="custom-file-input" />
-                    <label class="custom-file-label" for="customFile">Choose Your Signature</label>
-                  </div>
-                  <div class="custom-file mb-3">
-                    <label class="form-label">Line Token</label>
-                    <input type="text" formControlName="line_token" class="form-control"/>
+               </div>
+                  <!-- <div class="custom-file mb-3 ">
+                    <div [innerHtml]='msg' *ngIf="msg" style="color: red;"></div>
+                    <div><img style="width: 80px; height:90px; border-radius: 10px;" [src]="url" *ngIf="url"></div>
+
+                    <input style="width: 200px;" type="file" (change)="selectFile($event)" formControlName="photo"
+                      aria-label="Small" aria-describedby="inputGroup-sizing-sm" />
+                  </div> -->
+
+                  <div class="form-group">
+                    <label class="form-label">วันเกิด</label>
+                    <input type="text" formControlName="birthday" class="form-control" placeholder="Birthday"/>
                   </div>
                 </div>
-                <div class="col-xl-4 col-lg-4 col-sm-12">
+                <div class="col-xl-6 col-lg-6 col-sm-12">
+                  <div class="form-group">
+                    <label class="form-label">โทรศัพท์</label>
+                    <input type="text" formControlName="phone" class="form-control" placeholder="Phone" />
+                  </div>
+                  <div class="form-group">
+                    <label class="form-label">วันที่เริ่มงาน</label>
+                    <input type="text" formControlName="start_work_date" class="form-control"
+                      placeholder="Start Work Date" />
+                  </div>
+                  <div class="form-group">
+                    <label class="form-label">บริษัท</label>
+                    <select class="custom-select" formControlName="company_id">
+                      <option value="" disabled selected>--เลือกบริษัท--</option>
+                      <option *ngFor="let item of CompanyData; let i =index" value="{{ item.id }}">{{ item.name_th }}
+                      </option>
+                    </select>
+                  </div>
+
                   <div class="form-group">
                     <label class="form-label">สาขา</label>
                     <select class="custom-select" formControlName="branch_id">
-                      <option value="" disabled selected>--Select--</option>
-                      <option  *ngFor="let item of BranchData; let i =index" value="{{ item.id }}">{{ item.name_th }}</option>
+                      <option value="" disabled selected>--เลือกสาขา--</option>
+                      <option *ngFor="let item of BranchData; let i =index" value="{{ item.id }}">{{ item.name_th }}
+                      </option>
                     </select>
                   </div>
                   <div class="form-group">
-                    <label class="form-label">สิทธิ์</label>
-                    <select class="custom-select" formControlName="permission_id">
-                      <option value="" disabled selected>--Select--</option>
-                      <option  *ngFor="let item of PermissionData; let i =index" value="{{ item.id }}">{{ item.name_th }}</option>
+                    <label class="form-label">ฝ่าย</label>
+                    <select class="custom-select" formControlName="division_id">
+                      <option value="" disabled selected>--เลือฝ่าย--</option>
+                      <option *ngFor="let item of DivitionData; let i =index" value="{{ item.id }}">{{ item.name_th }}
+                      </option>
                     </select>
                   </div>
                   <div class="form-group">
                     <label class="form-label">แผนก</label>
                     <select class="custom-select" formControlName="department_id">
-                      <option value="" disabled selected>--Select--</option>
-                      <option  *ngFor="let item of DepartmentData; let i =index" value="{{ item.id }}">{{ item.name_th }}</option>
+                      <option value="" disabled selected>--เลือกแผนก--</option>
+                      <option *ngFor="let item of DepartmentData; let i =index" value="{{ item.id }}">{{ item.name_th }}
+                      </option>
                     </select>
                   </div>
                   <div class="form-group">
                     <label class="form-label">ตำแหน่ง</label>
                     <select class="custom-select" formControlName="position_id">
-                      <option value="" disabled selected>--Select--</option>
-                      <option  *ngFor="let item of PositionData; let i =index" value="{{ item.id }}">{{ item.name_th }}</option>
+                      <option value="" disabled selected>--เลือกตำแหน่ง--</option>
+                      <option *ngFor="let item of PositionData; let i =index" value="{{ item.id }}">{{ item.name_th }}
+                      </option>
                     </select>
                   </div>
-                  <div class="custom-file mb-3">
-                    <label class="form-label">สถานะ</label>
-                    <select class="custom-select" formControlName="status" >
-                      <option value="" disabled selected>--Select--</option>
-                      <option value="Yes">Enable</option>
-                      <option value="No">Disable</option>
+                  <div class="form-group">
+                    <label class="form-label">ประเภทพนักงาน</label>
+                    <select class="custom-select" formControlName="person_type_id">
+                      <option value="" disabled selected>--เลือกประเภทพนักงาน--</option>
+                      <option *ngFor="let item of PersosTypeData; let i =index" value="{{ item.id }}">{{ item.name_th }}
+                      </option>
+                    </select>
+                  </div>
+                  <div class="form-group">
+                    <label class="form-label">กลุ่มตำแหน่ง</label>
+                    <select class="custom-select" formControlName="position_group_id">
+                      <option value="" disabled selected>--เลือกกลุ่มตำแหน่ง--</option>
+                      <option *ngFor="let item of PositionGroupData; let i =index" value="{{ item.id }}">{{ item.name_th }}
+                      </option>
+                    </select>
+                  </div>
+                  <div class="form-group">
+                    <label class="form-label">ประเภทตำแหน่ง</label>
+                    <select class="custom-select" formControlName="position_type_id">
+                      <option value="" disabled selected>--เลือกประเภทตำแหน่ง--</option>
+                      <option *ngFor="let item of PositionTypeData; let i =index" value="{{ item.id }}">{{ item.name_th }}
+                      </option>
+                    </select>
+                  </div>
+                  <div class="form-group">
+                    <label class="form-label">ระดับตำแหน่ง</label>
+                    <select class="custom-select" formControlName="position_level_id">
+                      <option value="" disabled selected>--เลือกระดับตำแหน่ง--</option>
+                      <option *ngFor="let item of PositionLevelData; let i =index" value="{{ item.id }}">{{ item.name_th }}
+                      </option>
                     </select>
                   </div>
                 </div>
               </div>
             </div>
             <div class="card-footer text-right">
-              <button type="button" (click)=onAdd(); class="btn btn-primary" [disabled]="employeeForm.baseForm.invalid || employeeForm.confirm_password.value != employeeForm.password.value">
+              <button type="button" (click)=onAdd(); class="btn btn-primary">
                 บันทึก
               </button>
               &nbsp;

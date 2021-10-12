@@ -17,7 +17,7 @@ export class UsersService {
 
   getAll(): Observable<User> {
     return this.http
-      .get<User>(`${environment.API_URL}/api/user`, this.httpOptions)
+      .get<User>(`${environment.API_URL}/api/user_page`, this.httpOptions)
       .pipe(catchError(this.handlerError));
   }
 

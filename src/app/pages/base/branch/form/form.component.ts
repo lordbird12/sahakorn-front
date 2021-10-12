@@ -26,6 +26,7 @@ export class FormComponent implements AfterViewInit, OnInit, OnDestroy {
   showPasswordField = true;
   hide = true;
   private subscription: Subscription = new Subscription();
+  public ProvinceData: any = [];
 
   constructor(
     private branchSvc: BranchService,
@@ -44,10 +45,20 @@ export class FormComponent implements AfterViewInit, OnInit, OnDestroy {
   ngOnInit(): void {
     this.branchForm.baseForm.get('role').setValidators(null);
     this.branchForm.baseForm.get('role').updateValueAndValidity();
+    this.getProvince();
   }
+
+  getProvince(): void {
+    this.branchSvc.getProvince().subscribe(resp => {
+      this.ProvinceData = resp.data;
+      console.log(this.ProvinceData);
+    });
+
+   }
 
   onAdd(): void {
     if (this.branchForm.baseForm.invalid) {
+      alert("[กรอกข้อมูลไม่ครบ");
       return;
     }
 

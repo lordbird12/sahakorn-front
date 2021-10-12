@@ -45,7 +45,11 @@ export class ListComponent implements AfterViewInit, OnInit, OnDestroy {
   dtElement!: DataTableDirective;
 
   @ViewChild(MatSort) sort: MatSort;
-  constructor(private router: Router, private positionTypeSvc: PositionTypeService, private elementRef: ElementRef, private renderer: Renderer2) { }
+  constructor(private router: Router,
+    private positionTypeSvc: PositionTypeService,
+    private elementRef: ElementRef,
+    private renderer: Renderer2
+    ) { }
 
   ngOnDestroy(): void {
     this.destroy$.next({});
@@ -82,6 +86,7 @@ export class ListComponent implements AfterViewInit, OnInit, OnDestroy {
       },
       columns: [
         { data: 'No' },
+        { data: 'code' },
         { data: 'name_th' },
         { data: 'name_en' },
         { data: 'create_by' },
@@ -101,16 +106,15 @@ export class ListComponent implements AfterViewInit, OnInit, OnDestroy {
       state: {
         item: {
           id: data.id,
-          name: data.name,
-          // company_id: data.company_id,
-          // name_th: data.name_th,
-          // name_en: data.name_en,
+          code: data.code,
+          name_th: data.name_th,
+          name_en: data.name_en,
           role: '',
-        }
+        },
       }
     };
 
-    this.router.navigate(['base/position/edit'], navigationExtras);
+    this.router.navigate(['base/position-type/edit'], navigationExtras);
   }
 
   onDelete(positionId: number): void {
@@ -119,9 +123,9 @@ export class ListComponent implements AfterViewInit, OnInit, OnDestroy {
         .delete(positionId)
         .pipe(takeUntil(this.destroy$))
         .subscribe((res: PositionTypeResponse) => {
-          if (res.code === 201) {
+          // if (res.code === 201) {
             this.rerender();
-          }
+          // }
           // this.branchSvc.getAll().subscribe((branch) => {
           // this.dataRow = branch.data;
           // });

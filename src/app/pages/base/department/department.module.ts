@@ -8,13 +8,16 @@ import { ListComponent } from './list/list.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { EditComponent } from './edit/edit.component';
 import { DataTablesModule } from 'angular-datatables';
+import {MatSelectModule} from '@angular/material/select';
+
 @NgModule({
   declarations: [FormComponent, ListComponent, EditComponent],
   imports: [
     CommonModule,
     DepartmentRoutingModule,
     ReactiveFormsModule,
-    DataTablesModule
+    DataTablesModule,
+    MatSelectModule
   ]
 })
 export class DepartmentModule { }

@@ -12,15 +12,61 @@ export class BaseFormBranch {
     id: [
       '',
     ],
-
-    name: [
+    code: [
+      '',
+      [Validators.required],
+    ],
+    name_th: [
+      '',
+      [Validators.required],
+    ],
+    name_en: [
+      '',
+      [Validators.required],
+    ],
+    address: [
+      '',
+      // [Validators.required],
+    ],
+    village: [
+      '',
+      [Validators.required],
+    ],
+    road: [
+      '',
+      // [Validators.required],
+    ],
+    sub_district: [
+      '',
+      // [Validators.required],
+    ],
+    district: [
+      '',
+      // [Validators.required],
+    ],
+    zipcode: [
+      '',
+      // [Validators.required],
+    ],
+    phone: [
+      '',
+      // [Validators.required],
+    ],
+    fax: [
+      '',
+      // [Validators.required],
+    ],
+    map: [
+      '',
+      // [Validators.required],
+    ],
+    province_id: [
       '',
       [Validators.required],
     ],
 
     role: ['', [Validators.required]],
   });
-
   isValidField(field: string): boolean {
     this.getErrorMessage(field);
     return (
