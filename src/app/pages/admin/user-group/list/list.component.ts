@@ -119,9 +119,9 @@ export class ListComponent implements AfterViewInit, OnInit, OnDestroy {
         .delete(branchId)
         .pipe(takeUntil(this.destroy$))
         .subscribe((res: UserGroupResponse) => {
-          if (res.code === 201) {
+          // if (res.code === 201) {
             this.rerender();
-          }
+          // }
           // this.branchSvc.getAll().subscribe((branch) => {
           // this.dataRow = branch.data;
           // });

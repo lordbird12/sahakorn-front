@@ -3,7 +3,7 @@
     <!--Page header-->
     <div class="page-header">
       <div class="page-leftheader">
-        <h4 class="page-title">เพิ่มข้อมูลประเภทเงินกู้</h4>
+        <h4 class="page-title">เพิ่มสมาชิก</h4>
       </div>
       <div class="page-rightheader ml-auto d-lg-flex d-none">
         <ol class="breadcrumb">
@@ -16,10 +16,10 @@
               </svg><span class="breadcrumb-icon"> หน้าหลัก</span></a>
           </li>
           <li class="breadcrumb-item">
-            <a routerLink="/managecooperative/loantype/list">ประเภทเงินกู้</a>
+            <a routerLink="/managecooperative/cooperative-members/list">สมาชิก</a>
           </li>
           <li class="breadcrumb-item active" aria-current="page">
-            เพิ่มข้อมูลประเภทเงินกู้
+            เพิ่มข้อมูลสมาชิก
           </li>
         </ol>
       </div>
@@ -30,7 +30,7 @@
       <div class="col-lg-12 col-md-12">
         <div class="card">
           <div class="card-header">
-            <h3 class="card-title">ฟอร์มเพิ่มข้อมูล</h3>
+            <h3 class="card-title">ฟอร์มเพิ่มข้อมูลสมาชิก</h3>
           </div>
           <div class="card-body">
             <form [formGroup]="CooperativeMembersForm.baseForm" (ngSubmit)="onAdd()">
@@ -38,33 +38,27 @@
                 <div class="col-lg-6 col-md-12">
 
                   <div class="form-group row">
-                    <label class="col-md-3 form-label">รหัสสมาชิก</label>
+                    <label class="col-md-3 form-label">รหัสพนักงาน</label>
                     <div class="col-md-9">
                       <input type="text" formControlName="person_id" class="form-control" />
                     </div>
                   </div>
                   <div class="form-group row">
-                    <label class="col-md-3 form-label">รหัสพนักงาน </label>
-                    <div class="col-md-9">
-                      <input type="text" formControlName="description" class="form-control" />
-                    </div>
-                  </div>
-                  <div class="form-group row">
-                    <label class="col-md-3 form-label">ชื่อ-นามสกุล</label>
-                    <div class="col-md-9">
-                      <input type="text" formControlName="person_id" class="form-control" />
-                    </div>
-                  </div>
-                  <div class="form-group row">
-                    <label class="col-md-3 form-label">ประเภทสมาชิก</label>
+                    <label class="col-md-3 form-label">ประเภทสมาชิก </label>
                     <div class="col-md-9">
                       <input type="text" formControlName="type" class="form-control" />
                     </div>
                   </div>
                   <div class="form-group row">
-                    <label class="col-md-3 form-label">จำนวนหุ้นรายเดือน</label>
+                    <label class="col-md-3 form-label">จำนวนหุ้น/เดือน</label>
                     <div class="col-md-9">
                       <input type="text" formControlName="share_qty" class="form-control" />
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label class="col-md-3 form-label">จำนวนค่าหุ้น/เดือน</label>
+                    <div class="col-md-9">
+                      <input type="text" formControlName="share_amount" class="form-control" />
                     </div>
                   </div>
                   <div class="form-group row">
@@ -87,16 +81,7 @@
                       <input type="text" formControlName="member_date" class="form-control" />
                     </div>
                   </div>
-                  <div class="form-group row">
-                    <label class="col-md-3 form-label">สถานะสมาชิก</label>
-                    <div class="col-md-9">
-                      <input type="radio" formControlName="status" value="Y">
-                        <label><i class="fa fa-check"></i></label><br>
-                      <input type="radio" formControlName="status" value="N">
-                        <label><i class="fa fa-times"></i></label><br>
-                      <!-- <input type="text" formControlName="share" class="form-control" /> -->
-                    </div>
-                  </div>
+
                   <div class="form-group row">
                     <label class="col-md-3 form-label">สถานะชำระหุ้น</label>
                     <div class="col-md-9">

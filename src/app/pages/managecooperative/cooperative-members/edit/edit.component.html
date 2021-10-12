@@ -37,21 +37,9 @@
               <div class="row">
                 <div class="col-lg-6 col-md-12">
                   <div class="form-group row">
-                    <label class="col-md-3 form-label">รหัสสมาชิก</label>
-                    <div class="col-md-9">
-                      <input type="text" formControlName="member_id" class="form-control" disabled />
-                    </div>
-                  </div>
-                  <div class="form-group row">
                     <label class="col-md-3 form-label">รหัสพนักงาน</label>
                     <div class="col-md-9">
-                      <input type="text" formControlName="person_id" class="form-control" />
-                    </div>
-                  </div>
-                  <div class="form-group row">
-                    <label class="col-md-3 form-label">ชื่อ-นามสกุล</label>
-                    <div class="col-md-9">
-                      <input type="text" formControlName="person" class="form-control" />
+                      <input type="text" formControlName="person_id" class="form-control" disabled />
                     </div>
                   </div>
                   <div class="form-group row">
@@ -61,19 +49,31 @@
                     </div>
                   </div>
                   <div class="form-group row">
+                    <label class="col-md-3 form-label">สถานะ</label>
+                    <div class="col-md-9">
+                      <input type="text" formControlName="status" class="form-control" />
+                    </div>
+                  </div>
+                  <div class="form-group row">
                     <label class="col-md-3 form-label">จำนวนหุ้นรายเดือน</label>
                     <div class="col-md-9">
                       <input type="text" formControlName="share_qty" class="form-control" />
                     </div>
                   </div>
                   <div class="form-group row">
-                    <label class="col-md-3 form-label">จำนวนหุ้นสะสม</label>
+                    <label class="col-md-3 form-label">จำนวนค่าหุ้น/เดือน</label>
                     <div class="col-md-9">
                       <input type="text" formControlName="share_amount" class="form-control" />
                     </div>
                   </div>
                   <div class="form-group row">
-                    <label class="col-md-3 form-label">จำนวนหุ้น</label>
+                    <label class="col-md-3 form-label">จำนวนหุ้นสะสม</label>
+                    <div class="col-md-9">
+                      <input type="text" formControlName="sum_share_qty" class="form-control" />
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label class="col-md-3 form-label">จำนวนค่าหุ้นสะสม</label>
                     <div class="col-md-9">
                       <input type="text" formControlName="sum_share_amount" class="form-control" />
                     </div>
@@ -81,36 +81,9 @@
                 </div>
                 <div class="col-lg-6 col-md-12">
                   <div class="form-group row">
-                    <label class="col-md-3 form-label">จำนวนหุ้น</label>
+                    <label class="col-md-3 form-label">วันที่เป็นสมาชิก</label>
                     <div class="col-md-9">
-                      <input type="text" formControlName="sum_share_qty" class="form-control" />
-                    </div>
-                  </div>
-                  <div class="form-group row">
-                    <label class="col-md-3 form-label">จำนวนหุ้น</label>
-                    <div class="col-md-9">
-                      <input type="text" formControlName="sum_share_qty" class="form-control" />
-                    </div>
-                  </div>
-                  <div class="form-group row">
-                    <label class="col-md-3 form-label">มูลค่าหุ้นสะสม </label>
-                    <div class="col-md-9">
-                        <input type="text" formControlName="sum_share_amount" class="form-control" />
-                    </div>
-                </div>
-                <div class="form-group row">
-                  <label class="col-md-3 form-label">วันที่ที่เป็นสมาชิก </label>
-                  <div class="col-md-9">
-                    <input type="text" formControlName="member_date" class="form-control" />
-                  </div>
-                </div>
-                  <div class="form-group row">
-                    <label class="col-md-3 form-label">สถานะสมาชิก</label>
-                    <div class="col-md-9">
-                      <input type="radio" formControlName="status" value="Y">
-                        <label><i class="fa fa-check"></i></label><br>
-                      <input type="radio" formControlName="status" value="N">
-                        <label><i class="fa fa-times"></i></label><br>
+                      <input type="text" formControlName="member_date" class="form-control" />
                     </div>
                   </div>
                   <div class="form-group row">

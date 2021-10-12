@@ -41,38 +41,38 @@ export class UserGroupService {
 
   getAll(dataTablesParameters: any): Observable<UserGroupResponse> {
     return this.http
-      .post<UserGroupResponse>(`${environment.API_URL}/api/user_group_page`, dataTablesParameters, this.httpOptions)
+      .post<UserGroupResponse>(`${environment.API_URL}/api/user_page`, dataTablesParameters, this.httpOptions)
       .pipe(
         map((branch: UserGroupResponse) => {
           return branch;
         }));
   }
 
-  getById(branchId: number): Observable<UserGroup> {
+  getById(userId: number): Observable<UserGroup> {
     return this.http
-      .get<any>(`${environment.API_URL}/api/user_group/${branchId}`)
+      .get<any>(`${environment.API_URL}/api/user/${userId}`)
       .pipe(catchError(this.handlerError));
   }
 
-  new(branch: UserGroup): Observable<UserGroup> {
+  new(user: UserGroup): Observable<UserGroup> {
     console.log(this.httpOptions);
     return this.http
-      .post<UserGroup>(`${environment.API_URL}/api/user_group`, branch, this.httpOptions)
+      .post<UserGroup>(`${environment.API_URL}/api/user`, user, this.httpOptions)
       .pipe(catchError(this.handlerError));
   }
 
-  update(branchId: number, branch: UserGroup): Observable<UserGroup> {
+  update(userId: number, user: UserGroup): Observable<UserGroup> {
     return this.http
-      .patch<UserGroup>(`${environment.API_URL}/api/user_group/${branchId}`, branch, this.httpOptions)
+      .patch<UserGroup>(`${environment.API_URL}/api/update_user/${userId}`, user, this.httpOptions)
       .pipe(catchError(this.handlerError));
   }
 
-  delete(branchId: number): Observable<{}> {
+  delete(userId: number): Observable<{}> {
     return this.http
-      .delete<UserGroupResponse>(`${environment.API_URL}/api/user_group/${branchId}`, this.httpOptions)
+      .delete<UserGroupResponse>(`${environment.API_URL}/api/user/${userId}`, this.httpOptions)
       .pipe(
-        map((branch: UserGroupResponse) => {
-          return branch;
+        map((user: UserGroupResponse) => {
+          return user;
         }),
         catchError((err) => this.handlerError(err))
         );

@@ -107,26 +107,24 @@ export class ListComponent implements AfterViewInit, OnInit, OnDestroy {
     const navigationExtras: NavigationExtras = {
       state: {
         item: {
-          id: data.id,
-          create_by: data.create_by,
-          member_date: data.member_date, //เป็นสมาชิกวันที่
-          member_id: data.member_id, //รหัสสมาชิก
-          // member_doc:data.member_doc,
-          person: data.person.name,//ชื่อพนักงาน
+          // id: data.id,
           person_id: data.person_id,//รหัสพนักงาน
-          // reason: data.reason,
-          // resign_doc: data.resign_doc,
-          // resign_id: data.resign_id,
-          share_amount: data.share_amount, //จำนวนหุ้นสะสม
-          // share_doc: data.share_doc,
-          share_pay: data.share_pay,  //สถานะชำระหุ้น
-          share_qty: data.share_qty, //จำนวนหุ้นรายเดือน
-          status: data.status, //สถานะ
-          sum_share_amount: data.sum_share_amount, //มูลค่าหุ้นสะสม
-          sum_share_qty: data.sum_share_qty, //ส่วนแบ่งคุณภาพ
           type: data.type, //ประเภท as member
-          update_by: data.update_by,
-          updated_at: data.updated_at,
+          status: data.status, //สถานะ
+          share_qty: data.share_qty, //จำนวนหุ้นรายเดือน
+          share_amount: data.share_amount, //จำนวนหุ้นสะสม
+          sum_share_qty: data.sum_share_qty,
+          sum_share_amount: data.sum_share_amount, //มูลค่าหุ้นสะสม
+          share_pay: data.share_pay,  //สถานะชำระหุ้น
+          member_date: data.member_date, //เป็นสมาชิกวันที่
+
+
+          share_doc: data.share_doc,
+          member_doc:data.member_doc,
+          resign_doc: data.resign_doc,
+          resign_date: data.resign_date,
+          resign_id: data.resign_id,
+          reason: data.reason,
           role: '',
         },
       },

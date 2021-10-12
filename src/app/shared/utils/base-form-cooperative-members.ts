@@ -9,9 +9,6 @@ export class BaseFormCooperativeMembers {
   constructor(private fb: FormBuilder) { }
 
   baseForm = this.fb.group({
-    id: [
-      '',
-    ],
     person_id: [
       '',
       [Validators.required],
@@ -20,11 +17,11 @@ export class BaseFormCooperativeMembers {
       '',
       [Validators.required],
     ],
-    status: [
+    share_qty: [
       '',
       [Validators.required],
     ],
-    share_qty: [
+    status: [
       '',
       [Validators.required],
     ],
@@ -71,22 +68,6 @@ export class BaseFormCooperativeMembers {
     reason: [
       '',
       // [Validators.required],
-    ],
-    create_by: [
-      '',
-      // [Validators.required],
-    ],
-    update_by: [
-      '',
-      // [Validators.required],
-    ],
-    created_at: [
-      '',
-      [Validators.required],
-    ],
-    updated_at: [
-      '',
-      [Validators.required],
     ],
 
     role: ['', [Validators.required]],
