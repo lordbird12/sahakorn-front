@@ -129,7 +129,7 @@ export class EmployeeService {
 
   update(userId: number, employee: FormData): Observable<Employee> {
     return this.http
-      .post<Employee>(`${environment.API_URL}/api/person`, employee, this.httpOptionsFormdata)
+      .post<Employee>(`${environment.API_URL}/api/update_person`, employee, this.httpOptionsFormdata)
       .pipe(catchError(this.handlerError));
   }
 

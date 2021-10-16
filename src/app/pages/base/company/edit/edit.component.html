@@ -37,55 +37,148 @@
               <div class="row">
                 <div class="col-lg-6 col-md-12">
                   <div class="form-group row">
+                    <label class="col-md-3 form-label">Company Id</label>
+                    <div class="col-md-9">
+                      <input type="text" formControlName="company_id" class="form-control" />
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label class="col-md-3 form-label">รหัส</label>
+                    <div class="col-md-9">
+                      <input type="text" formControlName="code" class="form-control" />
+                    </div>
+                  </div>
+
+                  <div class="form-group row">
                     <label class="col-md-3 form-label">ชื่อไทย</label>
                     <div class="col-md-9">
                       <input type="text" formControlName="name_th" class="form-control" />
                     </div>
                   </div>
                   <div class="form-group row">
-                    <label class="col-md-3 form-label">เลขที่ผู้เสียภาษี</label>
-                    <div class="col-md-9">
-                      <input type="text" class="form-control" />
-                    </div>
-                  </div>
-                  <div class="form-group row">
-                    <label class="col-md-3 form-label">เบอร์โทร</label>
-                    <div class="col-md-9">
-                      <input type="text" class="form-control" />
-                    </div>
-                  </div>
-                  <div class="form-group row">
-                    <label class="col-md-3 form-label">อีเมล</label>
-                    <div class="col-md-9">
-                      <input type="text" class="form-control" />
-                    </div>
-                  </div>
-                  <div class="form-group row">
-                    <label class="col-md-3 form-label">ผู้ติดต่อ</label>
-                    <div class="col-md-9">
-                      <input type="text" class="form-control" />
-                    </div>
-                  </div>
-                </div>
-                <div class="col-lg-6 col-md-12">
-                  <div class="form-group row">
-                    <label class="col-md-3 form-label">ชื่ออังกฤษ</label>
+                    <label class="col-md-3 form-label">ชื่อไทย</label>
                     <div class="col-md-9">
                       <input type="text" formControlName="name_en" class="form-control" />
                     </div>
                   </div>
                   <div class="form-group row">
-                    <label class="col-md-3 form-label">รายละเอียด</label>
+                    <label class="col-md-3 form-label">ชื่อย่อ</label>
                     <div class="col-md-9">
-                      <textarea class="form-control" rows="3"></textarea>
+                      <input type="text" formControlName="abbreviation" class="form-control" />
                     </div>
                   </div>
+                  <div class="form-group row">
+                    <label class="col-md-3 form-label">เลขนิติบุคคล</label>
+                    <div class="col-md-9">
+                      <input type="text" formControlName="tax_id" class="form-control" />
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label class="col-md-3 form-label">เลขบัญขี</label>
+                    <div class="col-md-9">
+                      <input type="text" formControlName="bank_id" class="form-control" />
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label class="col-md-3 form-label">ชื่อธนาคาร</label>
+                    <div class="col-md-9">
+                      <input type="text" formControlName="bank_name" class="form-control" />
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label class="col-md-3 form-label">ชื่อบัญชี</label>
+                    <div class="col-md-9">
+                      <input type="text" formControlName="account_name" class="form-control" />
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label class="col-md-3 form-label">สาขาธนาคาร</label>
+                    <div class="col-md-9">
+                      <input type="text" class="form-control" formControlName="bank_batch" >
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label class="col-md-3 form-label">ที่อยู่</label>
+                    <div class="col-md-9">
+                      <input type="text" formControlName="address" class="form-control" />
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-6 col-md-12">
+
+                  <div class="form-group row">
+                    <label class="col-md-3 form-label">หมู่บ้าน</label>
+                    <div class="col-md-9">
+                      <input type="text" formControlName="village" class="form-control" />
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label class="col-md-3 form-label">ถนน</label>
+                    <div class="col-md-9">
+                      <input type="text" formControlName="road" class="form-control" />
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label class="col-md-3 form-label">แขวง</label>
+                    <div class="col-md-9">
+                      <input type="text" formControlName="sub_district" class="form-control" />
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label class="col-md-3 form-label">เขต</label>
+                    <div class="col-md-9">
+                      <input type="text" formControlName="district" class="form-control" />
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label class="col-md-3 form-label">จังหวัด</label>
+                    <div class="col-md-9">
+                      <input type="text" formControlName="province_id" class="form-control" />
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label class="col-md-3 form-label">รหัสไปษณีย์</label>
+                    <div class="col-md-9">
+                      <input type="text" formControlName="zipcode" class="form-control" />
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label class="col-md-3 form-label">โทรศัพท์</label>
+                    <div class="col-md-9">
+                      <input type="text" formControlName="phone" class="form-control" />
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label class="col-md-3 form-label">แฟลก</label>
+                    <div class="col-md-9">
+                      <input type="text" formControlName="fax" class="form-control" />
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label class="col-md-3 form-label">แผนที่</label>
+                    <div class="col-md-9">
+                      <input type="file" formControlName="map" accept="image/png, image/jpeg">
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label class="col-md-3 form-label">แผนที่บริษัท</label>
+                    <div class="col-md-9">
+                      <input type="file" name="map2" formControlName="map2" accept="image/png, image/jpeg">
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label class="col-md-3 form-label">logo</label>
+                    <div class="col-md-9">
+                      <input type="file" formControlName="logo" accept="image/png, image/jpeg">
+                    </div>
+                  </div>
+<!--
                   <div class="form-group row">
                     <label class="col-md-3 form-label">Website</label>
                     <div class="col-md-9">
                       <input class="form-control" type="url" name="url" />
                     </div>
-                  </div>
+                  </div> -->
                 </div>
                 <div class="col-lg-12 col-md-12 text-center">
                   <div class="form-group mb-0 mt-4 row justify-content-end">

@@ -6,7 +6,7 @@ import { ListComponent } from './list/list.component';
 import { EditComponent } from './edit/edit.component';
 import { FormComponent } from './form/form.component';
 
-import { ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { DataTablesModule } from 'angular-datatables'
 
 
@@ -17,6 +17,7 @@ import { DataTablesModule } from 'angular-datatables'
     CommonModule,
     CooperativeBoardRoutingModule,
     ReactiveFormsModule,
+    FormsModule,
     DataTablesModule
   ]
 })

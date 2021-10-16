@@ -3,6 +3,8 @@ export type Roles = 'SUSCRIPTOR' | 'ADMIN';
 
 // company
 export interface Company {
+  id: number,
+  code: number,
   company_id: number;
   name_th: string;
   name_en: string;
@@ -22,12 +24,13 @@ export interface Company {
   phone: string;
   fax: string;
   map: string;
+  map2: string;
   logo: string;
 
 }
 
 export interface CompanyResponse extends Company {
-  code: string;
+  code: number;
   status: string;
   message: string;
   data: {
@@ -870,7 +873,7 @@ export interface CooperativeBoard {
 
 }
 
-export interface CooperativeResponse extends CooperativeBoard {
+export interface CooperativeBoardResponse extends CooperativeBoard {
   code: string;
   status: string;
   message: string;
@@ -894,12 +897,7 @@ export interface Loantype {
   member_age: number;
   supporter_age: number;
   sup_num: number;
-
-
   interest_rate: string;
-
-
-
   account_name: string;
 
 }

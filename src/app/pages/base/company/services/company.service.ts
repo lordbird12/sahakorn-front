@@ -21,15 +21,13 @@ export class CompanyService {
     headers: new HttpHeaders({ 'Content-Type': 'application/json', Authorization: `Bearer ${user.token}` })
   };
 
-  httpOptionsFormdata = {
-    headers: new HttpHeaders({ Authorization: `Bearer ${user.token}` })
-  };
+  // httpOptionsFormdata = {
+  //   headers: new HttpHeaders({ Authorization: `Bearer ${user.token}` })
+  // };
 
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
     return next.handle(this.addToken(request));
   }
-
-
 
   addToken(request: HttpRequest<unknown>): HttpRequest<unknown> {
     const requestWithHeader = request.clone({
@@ -62,7 +60,7 @@ export class CompanyService {
 
   update(companyId: number, company: Company): Observable<Company> {
     return this.http
-      .patch<Company>(`${environment.API_URL}/api/company/${companyId}`, company, this.httpOptions)
+      .patch<Company>(`${environment.API_URL}/api/company_update${companyId}`, company, this.httpOptions)
       .pipe(catchError(this.handlerError));
   }
 

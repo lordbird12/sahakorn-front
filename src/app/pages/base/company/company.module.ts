@@ -8,15 +8,17 @@ import { ListComponent } from './list/list.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { EditComponent } from './edit/edit.component';
 import { DataTablesModule } from 'angular-datatables';
+import {MatSelectModule} from '@angular/material/select';
 
-console.warn('Company module');
+// console.warn('Company module');
 @NgModule({
   declarations: [FormComponent, ListComponent, EditComponent],
   imports: [
     CommonModule,
     CompanyRoutingModule,
     ReactiveFormsModule,
-    DataTablesModule
+    DataTablesModule,
+    MatSelectModule
   ]
 })
 export class CompanyModule { }

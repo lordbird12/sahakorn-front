@@ -3,7 +3,7 @@
     <!--Page header-->
     <div class="page-header">
       <div class="page-leftheader">
-        <h4 class="page-title">รายการบริษัท</h4>
+        <h4 class="page-title">ข้อมูลกรรมการ</h4>
       </div>
       <div class="page-rightheader ml-auto d-lg-flex d-none">
         <ol class="breadcrumb">
@@ -15,7 +15,7 @@
                 <path d="M7 10.19V18h2v-6h6v6h2v-7.81l-5-4.5z" opacity=".3" />
               </svg><span class="breadcrumb-icon"> หน้าหลัก</span></a>
           </li>
-          <li class="breadcrumb-item active" aria-current="page">ประเภทเงินกู้</li>
+          <li class="breadcrumb-item active" aria-current="page">ข้อมูลกรรมการ</li>
         </ol>
       </div>
     </div>
@@ -48,8 +48,14 @@
                       <th class="border-bottom-0">ชุดที่</th>
                       <th class="border-bottom-0">รหัสสมาชิก</th>
                       <th class="border-bottom-0">รหัสผนักงาน</th>
-                      <th class="border-bottom-0">วาระการดำรงตำแหน่ง</th>
-                      <th class="border-bottom-0">หมายเหตุ</th>
+                      <th class="border-bottom-0">ตำแหน่ง</th>
+                      <th class="border-bottom-0">สถานะ</th>
+                      <th class="border-bottom-0">ปีที่</th>
+                      <th class="border-bottom-0">วาระ</th>
+                      <th class="border-bottom-0">ครั้งที่</th>
+                      <th class="border-bottom-0">วันที่เริ่มต้ม</th>
+                      <th class="border-bottom-0">วันที่สิ้นสุด</th>
+
                       <th class="border-bottom-0">จัดการ</th>
 
                     </tr>
@@ -61,17 +67,13 @@
                       <td>{{ item.account_year.board_no }}</td>
                       <td>{{ item.member.member_id}}</td>
                       <td>{{ item.member.person_id}}</td>
-                      <td>{{ item.year}}</td>
                       <td>{{ item.position }}</td>
-
-                      <!-- <td>
-                      <div *ngIf="item.share =='Y'">
-                        <td><i class="fa fa-check"></i></td>
-                      </div>
-                      <div *ngIf="item.share !='Y'">
-                        <td><i class="fa fa-times"></i></td>
-                      </div>
-                      </td> -->
+                      <td>{{ item.status}}</td>
+                      <td>{{ item.year}}</td>
+                      <td>{{ item.term}}</td>
+                      <td>{{ item.phase}}</td>
+                      <td>{{ item.start_date}}</td>
+                      <td>{{ item.end_date}}</td>
 
                       <td>
                         <div class="btn-list">

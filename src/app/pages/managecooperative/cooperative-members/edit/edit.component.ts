@@ -60,11 +60,11 @@ export class EditComponent implements AfterViewInit, OnInit, OnDestroy {
       return;
     }
     const formValue = this.CooperativeMembersForm.baseForm.value;
-    console.log(formValue);
+    // console.log(formValue);
     // return false
     if (this.actionTODO === Action.EDIT) {
       this.CooperativeMembersSvc.update(formValue.id, formValue).subscribe((res) => {
-        alert("บันทึกสำเร็จ");
+        alert("บันทึกข้อมูลสำเร็จ");
         this.router.navigate(['managecooperative/cooperative-members/list']);
       });
     }

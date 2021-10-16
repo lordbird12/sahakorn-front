@@ -44,24 +44,26 @@
                   <thead>
                     <tr>
                       <th class="border-bottom-0">ลำดับ.</th>
+                      <th class="border-bottom-0">รหัส</th>
                       <th class="border-bottom-0">ชื่อไทย</th>
-                      <th class="border-bottom-0">ชื่ออังกฤษ</th>
-                      <th class="border-bottom-0">ผู้บันทึก</th>
-                      <th class="border-bottom-0">วันที่บันทึก</th>
-                      <th class="border-bottom-0">ผู้แก้ไข</th>
-                      <th class="border-bottom-0">วันที่แก้ไข</th>
+                      <th class="border-bottom-0">เลขธนาคาร</th>
+                      <th class="border-bottom-0">ชื่อธนาคาร</th>
+                      <th class="border-bottom-0">ชื่อบัญชีธนาคาร</th>
+                      <!-- <th class="border-bottom-0">ผู้แก้ไข</th> -->
+                      <!-- <th class="border-bottom-0">วันที่แก้ไข</th> -->
                       <th class="border-bottom-0">จัดการ</th>
                     </tr>
                   </thead>
                   <tbody *ngIf="dataRow?.length != 0">
                     <tr *ngFor="let item of dataRow; let i = index">
                       <td>{{ i + 1 }}</td>
+                      <td>{{ item.code }}</td>
                       <td>{{ item.name_th }}</td>
-                      <td>{{ item.name_en }}</td>
-                      <td>{{ item.create_by }}</td>
-                      <td>{{ item.create_at }}</td>
-                      <td>{{ item.update_by }}</td>
-                      <td>{{ item.update_at }}</td>
+                      <td>{{ item.bank_id }}</td>
+                      <td>{{ item.bank_name }}</td>
+                      <td>{{ item.account_name }}</td>
+                      <!-- <td>{{ item.update_by }}</td> -->
+                      <!-- <td>{{ item.update_at }}</td> -->
                       <td>
                         <div class="btn-list">
                           <button type="button" class="btn btn-icon btn-success" (click)="onEdit(item)">
@@ -71,13 +73,6 @@
                             <i class="fa fa-trash"></i>
                           </button>
                         </div>
-                      </td>
-                    </tr>
-                  </tbody>
-                  <tbody *ngIf="dataRow?.length == 0">
-                    <tr>
-                      <td colspan="8" class="no-data-available">
-                        No data found!
                       </td>
                     </tr>
                   </tbody>

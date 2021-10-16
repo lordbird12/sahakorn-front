@@ -1,128 +1,114 @@
 <div class="app-content page-body">
   <div class="container">
-      <!--Page header-->
-      <div class="page-header">
-          <div class="page-leftheader">
-              <h4 class="page-title">เพิ่มข้อมูลคณะกรรมการ</h4>
-          </div>
-          <div class="page-rightheader ml-auto d-lg-flex d-none">
-              <ol class="breadcrumb">
-                  <li class="breadcrumb-item">
-                      <a href="#" class="d-flex"><svg class="svg-icon" xmlns="http://www.w3.org/2000/svg" height="24"
-                              viewBox="0 0 24 24" width="24">
-                              <path d="M0 0h24v24H0V0z" fill="none" />
-                              <path d="M12 3L2 12h3v8h6v-6h2v6h6v-8h3L12 3zm5 15h-2v-6H9v6H7v-7.81l5-4.5 5 4.5V18z" />
-                              <path d="M7 10.19V18h2v-6h6v6h2v-7.81l-5-4.5z" opacity=".3" />
-                          </svg><span class="breadcrumb-icon"> หน้าหลัก</span></a>
-                  </li>
-                  <li class="breadcrumb-item">
-                    <a routerLink="/managecooperative/cooperative-board/list">ข้อมูลคณะกรรมการ</a>
-                  </li>
-                  <li class="breadcrumb-item active" aria-current="page">
-                    เพิ่มข้อมูลคณะกรรมการ
-                  </li>
-              </ol>
-          </div>
+    <!--Page header-->
+    <div class="page-header">
+      <div class="page-leftheader">
+        <h4 class="page-title">เพิ่มข้อมูลคณะกรรมการ</h4>
       </div>
-      <!--End Page header-->
-<!--
-      <div class="row">
-          <div class="col-lg-12 col-md-12">
-              <div class="card">
-                  <div class="card-header">
-                      <h3 class="card-title">ฟอร์มเพิ่มข้อมูล</h3>
-                  </div>
-                  <div class="card-body">
-                      <form [formGroup]="loantypeForm.baseForm" (ngSubmit)="onAdd()">
-                          <div class="row">
-                              <div class="col-lg-6 col-md-12">
+      <div class="page-rightheader ml-auto d-lg-flex d-none">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item">
+            <a href="#" class="d-flex"><svg class="svg-icon" xmlns="http://www.w3.org/2000/svg" height="24"
+                viewBox="0 0 24 24" width="24">
+                <path d="M0 0h24v24H0V0z" fill="none" />
+                <path d="M12 3L2 12h3v8h6v-6h2v6h6v-8h3L12 3zm5 15h-2v-6H9v6H7v-7.81l5-4.5 5 4.5V18z" />
+                <path d="M7 10.19V18h2v-6h6v6h2v-7.81l-5-4.5z" opacity=".3" />
+              </svg><span class="breadcrumb-icon"> หน้าหลัก</span></a>
+          </li>
+          <li class="breadcrumb-item">
+            <a routerLink="/managecooperative/cooperative-board/list">ข้อมูลคณะกรรมการ</a>
+          </li>
+          <li class="breadcrumb-item active" aria-current="page">
+            เพิ่มข้อมูลคณะกรรมการ
+          </li>
+        </ol>
+      </div>
+    </div>
+    <!--End Page header-->
 
-                                  <div class="form-group row">
-                                      <label class="col-md-3 form-label">รหัสประเภท</label>
-                                      <div class="col-md-9">
-                                          <input type="text" formControlName="name" class="form-control" />
-                                      </div>
-                                  </div>
-                                  <div class="form-group row">
-                                      <label class="col-md-3 form-label">รายละเอียด</label>
-                                      <div class="col-md-9">
-                                          <input type="text" formControlName="description" class="form-control" />
-                                      </div>
-                                  </div>
-                                  <div class="form-group row">
-                                      <label class="col-md-3 form-label">อักษรย่อ</label>
-                                      <div class="col-md-9">
-                                          <input type="text" formControlName="abbreviation" class="form-control" />
-                                      </div>
-                                  </div>
-                                  <div class="form-group row">
-                                      <label class="col-md-3 form-label">ดอกเบี้ย/ปี</label>
-                                      <div class="col-md-9">
-                                          <input type="text" formControlName="interest_rate" class="form-control" />
-                                      </div>
-                                  </div>
-                                  <div class="form-group row">
-                                      <label class="col-md-3 form-label">ผู้กู้</label>
-                                      <div class="col-md-9">
-                                          <input type="text" formControlName="member_age" class="form-control" />
-                                      </div>
-                                  </div>
-                              </div>
-                              <div class="col-lg-6 col-md-12">
-                                  <div class="form-group row">
-                                      <label class="col-md-3 form-label">ผู้ค้ำ</label>
-                                      <div class="col-md-9">
-                                          <input type="text" formControlName="supporter_age" class="form-control" />
-                                      </div>
-                                  </div>
-                                  <div class="form-group row">
-                                      <label class="col-md-3 form-label">หุ้น</label>
-                                      <div class="col-md-9">
-                                          <input type="radio" formControlName="share" value="Y">
-                                            <label ><i class="fa fa-check"></i></label><br>
-                                          <input type="radio" formControlName="share" value="N">
-                                            <label ><i class="fa fa-times"></i></label><br>
-                                      </div>
-                                  </div>
-                                  <div class="form-group row">
-                                      <label class="col-md-3 form-label">สมาชิก</label>
-                                      <div class="col-md-9">
-                                          <input type="radio" formControlName="supporter" value="Y">
-                                            <label ><i class="fa fa-check"></i></label><br>
-                                          <input type="radio" formControlName="supporter" value="N">
-                                            <label ><i class="fa fa-times"></i></label><br>
-                                      </div>
-                                  </div>
-                                  <div class="form-group row">
-                                      <label class="col-md-3 form-label">อสังหา</label>
-                                      <div class="col-md-9">
-                                          <input type="radio" formControlName="property" value="Y">
-                                            <label ><i class="fa fa-check"></i></label><br>
-                                          <input type="radio" formControlName="property" value="N">
-                                            <label ><i class="fa fa-times"></i></label><br>
-                                      </div>
-                                  </div>
-                              </div>
-                              <div class="col-lg-12 col-md-12 text-center">
-                                  <div class="form-group mb-0 mt-4 row justify-content-end">
-                                      <div class="col-md-12">
-                                          <button type="button" (click)="onAdd()" class="btn btn-primary">
-                                            <i class="fa fa-save"></i> บันทึก
-                                          </button>
-                                          &nbsp;
-                                          <button type="reset" class="btn btn-secondary">
-                                            <i class="fa fa-trash"></i> ล้างข้อมูล
-                                          </button>
-                                      </div>
-                                  </div>
-                              </div>
-                          </div>
-                      </form>
-                  </div>
-              </div>
+    <div class="row">
+      <div class="col-lg-12 col-md-12">
+        <div class="card">
+          <div class="card-header">
+            <h3 class="card-title">ฟอร์มเพิ่มข้อมูล</h3>
           </div>
-      </div> -->
-      <!-- End Row -->
+          <div class="card-body">
+            <form [formGroup]="CooperativeBoardForm.baseForm" (ngSubmit)="onAdd()">
+              <div class="row">
+                <div class="col-lg-6 col-md-12">
+
+                  <div class="form-group row">
+                    <label class="col-md-3 form-label">Account Year Id</label>
+                    <div class="col-md-9">
+                      <input type="text" formControlName="account_year_id" class="form-control" />
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label class="col-md-3 form-label">Member Id</label>
+                    <div class="col-md-9">
+                      <input type="text" formControlName="member_id" class="form-control" />
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label class="col-md-3 form-label">ตำแหน่ง</label>
+                    <div class="col-md-9">
+                      <input type="text" formControlName="position" class="form-control" />
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label class="col-md-3 form-label">วันที่เริ่มต้น</label>
+                    <div class="col-md-9">
+                      <input type="text" formControlName="start_date" class="form-control" />
+                    </div>
+                  </div>
+
+                </div>
+                <div class="col-lg-6 col-md-12">
+                  <div class="form-group row">
+                    <label class="col-md-3 form-label">วันที่สิ้นสุด</label>
+                    <div class="col-md-9">
+                      <input type="text" formControlName="end_date" class="form-control" />
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label class="col-md-3 form-label">วาระ</label>
+                    <div class="col-md-9">
+                      <input type="text" formControlName="term" class="form-control" />
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label class="col-md-3 form-label">ปีที่</label>
+                    <div class="col-md-9">
+                      <input type="text" formControlName="year" class="form-control" />
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label class="col-md-3 form-label">ครั้งที่</label>
+                    <div class="col-md-9">
+                      <input type="text" formControlName="phase" class="form-control" />
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-12 col-md-12 text-center">
+                  <div class="form-group mb-0 mt-4 row justify-content-end">
+                    <div class="col-md-12">
+                      <button type="button" (click)="onAdd()" class="btn btn-primary">
+                        <i class="fa fa-save"></i> บันทึก
+                      </button>
+                      &nbsp;
+                      <button type="reset" class="btn btn-secondary">
+                        <i class="fa fa-trash"></i> ล้างข้อมูล
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- End Row -->
   </div>
 </div>
 <!-- end app-content-->

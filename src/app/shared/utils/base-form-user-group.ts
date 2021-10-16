@@ -2,18 +2,18 @@ import { FormBuilder, Validators } from '@angular/forms';
 import { Injectable } from '@angular/core';
 
 @Injectable({ providedIn: 'root' })
-export class BaseFormCompany {
+export class BaseFormUserGroup {
   private isValidEmail = /\S+@\S+\.\S+/;
   errorMessage = null;
 
   constructor(private fb: FormBuilder) { }
 
   baseForm = this.fb.group({
-    company_id: [
+    id: [
       '',
-      // [Validators.required],
     ],
-    code: [
+
+    user_id: [
       '',
       [Validators.required],
     ],
@@ -25,78 +25,31 @@ export class BaseFormCompany {
       '',
       [Validators.required],
     ],
-    abbreviation: [
+    password: [
       '',
       [Validators.required],
     ],
-    tax_id: [
+    type: [
       '',
       [Validators.required],
     ],
-    bank_id: [
+    permission: [
       '',
       [Validators.required],
     ],
-    bank_name: [
+    email: [
       '',
       [Validators.required],
     ],
-    account_name: [
+    line_token: [
       '',
       [Validators.required],
     ],
-    bank_batch: [
+    user_group_id: [
       '',
       [Validators.required],
     ],
-    address: [
-      '',
-      [Validators.required],
-    ],
-    village: [
-      '',
-      [Validators.required],
-    ],
-    road: [
-      '',
-      [Validators.required],
-    ],
-    sub_district: [
-      '',
-      [Validators.required],
-    ],
-    district: [
-      '',
-      [Validators.required],
-    ],
-    province_id: [
-      '',
-      [Validators.required],
-    ],
-    zipcode: [
-      '',
-      [Validators.required],
-    ],
-    phone: [
-      '',
-      [Validators.required],
-    ],
-    fax: [
-      '',
-      [Validators.required],
-    ],
-    map: [
-      '',
-      [Validators.required],
-    ],
-    map2: [
-      '',
-      [Validators.required],
-    ],
-    logo: [
-      '',
-      [Validators.required],
-    ],
+
     role: ['', [Validators.required]],
   });
 

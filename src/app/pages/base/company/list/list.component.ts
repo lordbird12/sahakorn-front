@@ -17,6 +17,7 @@ import { Subject } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { DataTableDirective } from 'angular-datatables';
 import { CompanyResponse } from '@app/shared/models/base.interface';
+
 declare var $: any;
 const user = JSON.parse(localStorage.getItem('user')) || null;
 
@@ -87,13 +88,14 @@ export class ListComponent implements AfterViewInit, OnInit, OnDestroy {
         });
       },
       columns: [
-        { data: 'company_id' },
+        { data: 'id' },
+        { data: 'code' },
         { data: 'name_th' },
-        { data: 'name_en' },
-        { data: 'create_by' },
-        { data: 'update_by' },
-        { data: 'created_at' },
-        { data: 'updated_at' },
+        { data: 'bank_id' },
+        { data: 'bank_name' },
+        { data: 'account_name' },
+        // { data: 'created_at' },
+        // { data: 'updated_at' },
         { data: 'action', orderable: false },
       ],
     };
@@ -105,7 +107,9 @@ export class ListComponent implements AfterViewInit, OnInit, OnDestroy {
     const navigationExtras: NavigationExtras = {
       state: {
         item: {
-          company_id: data.company_id,
+
+          company_id: data.id,
+          code: data.code,
           name_th: data.name_th,
           name_en: data.name_en,
           abbreviation: data.abbreviation,
@@ -124,6 +128,7 @@ export class ListComponent implements AfterViewInit, OnInit, OnDestroy {
           phone: data.phone,
           fax: data.fax,
           map: data.map,
+          map2: data.map2,
           logo: data.logo,
           role: '',
         },

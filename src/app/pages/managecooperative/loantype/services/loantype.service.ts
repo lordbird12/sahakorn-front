@@ -63,7 +63,7 @@ export class LoantypeService {
 
   update(loantypeId: number, loantype: Loantype): Observable<Loantype> {
     return this.http
-      .patch<Loantype>(`${environment.API_URL}/api/loan_type/1`, loantype, this.httpOptions)
+      .patch<Loantype>(`${environment.API_URL}/api/loan_type/${loantypeId}`, loantype, this.httpOptions)
       .pipe(catchError(this.handlerError));
   }
 

@@ -8,7 +8,7 @@ import {
   OnDestroy,
 } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { BaseFormBranch } from '@shared/utils/base-form-branch';
+import { BaseFormUserGroup } from '@shared/utils/base-form-user-group';
 import { Subscription } from 'rxjs';
 enum Action {
   EDIT = 'edit',
@@ -30,11 +30,11 @@ export class EditComponent implements AfterViewInit, OnInit, OnDestroy {
   constructor(
     private branchSvc: UserGroupService,
     private router: Router,
-    public branchForm: BaseFormBranch,
+    public UserGroupForm: BaseFormUserGroup,
     public activatedRoute: ActivatedRoute
   ) {
     console.log('extras', this.router.getCurrentNavigation().extras.state.item);
-    this.branchForm.baseForm.setValue(this.router.getCurrentNavigation().extras.state.item);
+    this.UserGroupForm.baseForm.setValue(this.router.getCurrentNavigation().extras.state.item);
   }
 
   ngOnDestroy(): void {
@@ -46,16 +46,16 @@ export class EditComponent implements AfterViewInit, OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
-    this.branchForm.baseForm.get('role').setValidators(null);
-    this.branchForm.baseForm.get('role').updateValueAndValidity();
+    this.UserGroupForm.baseForm.get('role').setValidators(null);
+    this.UserGroupForm.baseForm.get('role').updateValueAndValidity();
   }
 
   onUpdate(): void {
 
-    if (this.branchForm.baseForm.invalid) {
+    if (this.UserGroupForm.baseForm.invalid) {
       return;
     }
-    const formValue = this.branchForm.baseForm.value;
+    const formValue = this.UserGroupForm.baseForm.value;
     console.log(formValue);
     // return false
     if (this.actionTODO === Action.EDIT) {

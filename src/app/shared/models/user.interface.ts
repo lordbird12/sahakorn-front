@@ -20,7 +20,14 @@ export interface UserResponse extends User {
 // user group
 export interface UserGroup {
   id: number;
-  name: string;
+  user_id: number;
+  name_th: string;
+  name_en: string;
+  type: string;
+  permission: string;
+  email: string;
+  line_token: string;
+  status: string;
   create_by: string;
   update_by: string;
   created_at: string;
